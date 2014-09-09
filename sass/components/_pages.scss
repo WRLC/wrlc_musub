@@ -8,4 +8,15 @@
 	padding: 1em 0;
 }
 
-
+#footer {
+	width: 100%;
+	max-width: 1200px;
+	.copyright {
+	  clear: both;
+	  text-align: center;
+	  font-size: 80%;
+	  p {
+	  	margin: 0.5em;
+	  }
+	}
+}

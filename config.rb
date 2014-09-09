@@ -11,9 +11,9 @@
 environment = :development
 #environment = :production
 
-# In development, we can turn on the FireSass-compatible debug_info.
-#firesass = false
-firesass = true
+# In development, we can turn on the FireCompass-compatible debug_info.
+#firecompass = false
+firecompass = true
 
 
 # Location of the theme's resources.
@@ -51,6 +51,6 @@ relative_assets = true
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
 
-# Pass options to sass. For development, we turn on the FireSass-compatible
-# debug_info if the firesass config variable above is true.
-sass_options = (environment == :development && firesass == true) ? {:debug_info => true} : {}
+# Pass options to sass. For development, we turn on the FireCompass-compatible
+# line_comments if the firecompass config variable above is true.
+sass_options = (environment == :development && firecompass == true) ? {:line_comments => true} : {}

@@ -213,6 +213,33 @@
 }
 
 /**
+  * Footer and block navigation
+  */
+.footer-navigation {
+  background: #000;
+  .menu {
+    display: table;
+    width: 100%;
+    padding: 0;
+    li {
+      display: table-cell;
+      letter-spacing: 0.5pt;
+      font-size: 90%;
+      text-transform: uppercase;
+      width: 20%;
+      text-align: center;
+      a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 0.6em;
+      }
+    }
+  }
+}
+
+
+/**
  * Breadcrumb navigation.
  */
 .breadcrumb {
