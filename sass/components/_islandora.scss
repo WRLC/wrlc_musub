@@ -32,3 +32,57 @@
 		}
 	}
 }
+
+// FP Solr Boxes //
+
+.featured-collections {
+	width: 72.25%;
+	float: left;
+	.views-row {
+		float: left;
+		width: 30%;
+	}
+}
+.browse-collections {
+	width: 22.5%;
+	float: left;
+	h2 {
+		text-transform: uppercase;
+		font-size: 95%;
+		font-weight: normal;
+		letter-spacing: 0.75pt;
+		background: #323232;
+		color: white;
+		padding: 2px 10px;
+		margin-bottom: 0.5em;
+	}
+	.views-row {
+		margin-bottom: 0.35em;
+		border-bottom: 1px dotted #d2d0cd;
+		a {
+			display: block;
+			padding-bottom: 0.35em;
+			&:link, &:visited {
+				text-decoration: none;
+			}
+			&:hover, &.active {
+				
+			}
+		}
+	}
+	.read-more {
+		font-size: 90%;
+		text-decoration: none;
+	}
+}
+.recent-additions {
+	width: 100%;
+	float: left;
+	h2 {
+		
+	}
+	.views-row {
+		float: left;
+		width: 42.5%;
+	}
+}

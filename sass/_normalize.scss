@@ -131,6 +131,11 @@ body {
   padding: 0;
 }
 
+/* Remove safari highlights */
+[tabindex="-1"] {
+  outline: 0;
+}
+
 /**
  * Links
  *
