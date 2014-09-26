@@ -120,18 +120,19 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 85%;
   /* 2 */
+  color: #1a1a1a;
   line-height: 1.5em;
 }
 
 /* Remove default margin. */
-/* line 129, ../sass/_normalize.scss */
+/* line 130, ../sass/_normalize.scss */
 body {
   margin: 0;
   padding: 0;
 }
 
 /* Remove safari highlights */
-/* line 135, ../sass/_normalize.scss */
+/* line 136, ../sass/_normalize.scss */
 [tabindex="-1"] {
   outline: 0;
 }
@@ -142,6 +143,11 @@ body {
  * The order of link states are based on Eric Meyer's article:
  * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
  */
+/* line 147, ../sass/_normalize.scss */
+a:link, a:visited {
+  text-decoration: none;
+}
+
 /* Address `outline` inconsistency between Chrome and other browsers. */
 /* line 156, ../sass/_normalize.scss */
 a:focus {
@@ -1481,24 +1487,30 @@ span.field-label {
  */
 /* line 555, ../sass/components/_misc.scss */
 .menu__item.is-leaf {
-  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHBAMAAAA2fErgAAAAD1BMVEX///+/v7+Li4sAAADAwMBFvsw8AAAAAXRSTlMAQObYZgAAAB1JREFUCFtjYAADYwMGBmYVZSDhKAwkFJWhYiAAAB2+Aa/9ugeaAAAAAElFTkSuQmCC');
-  list-style-type: square;
+  list-style: none;
+  /* 
+  list-style-image: inline-image("menu-leaf.png");
+   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+     *list-style-image: image-url("menu-leaf.png");
+   }
+   list-style-type: square;
+   */
 }
 
-/* line 562, ../sass/components/_misc.scss */
+/* line 565, ../sass/components/_misc.scss */
 .menu__item.is-expanded {
   list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
   list-style-type: circle;
 }
 
-/* line 569, ../sass/components/_misc.scss */
+/* line 572, ../sass/components/_misc.scss */
 .menu__item.is-collapsed {
   list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC');
   list-style-type: disc;
 }
 
 /* The active item in a Drupal menu. */
-/* line 578, ../sass/components/_misc.scss */
+/* line 581, ../sass/components/_misc.scss */
 .menu a.active {
   color: #000;
 }
@@ -1507,7 +1519,7 @@ span.field-label {
  * Marker.
  */
 /* The "new" or "updated" marker. */
-/* line 588, ../sass/components/_misc.scss */
+/* line 591, ../sass/components/_misc.scss */
 .new,
 .update {
   color: #c00;
@@ -1519,7 +1531,7 @@ span.field-label {
  * Unpublished note.
  */
 /* The word "Unpublished" displayed underneath the content. */
-/* line 599, ../sass/components/_misc.scss */
+/* line 602, ../sass/components/_misc.scss */
 .unpublished {
   height: 0;
   overflow: visible;
@@ -1540,31 +1552,31 @@ span.field-label {
  * Comments.
  */
 /* Wrapper for the list of comments and its title. */
-/* line 627, ../sass/components/_misc.scss */
+/* line 630, ../sass/components/_misc.scss */
 .comments {
   margin: 1.5em 0;
 }
 
 /* Preview of the comment before submitting new or updated comment. */
-/* line 632, ../sass/components/_misc.scss */
+/* line 635, ../sass/components/_misc.scss */
 .comment-preview {
   /* Drupal core will use a #ffffea background. See #1110842. */
   background-color: #ffffea;
 }
 
 /* Wrapper for a single comment. */
-/* line 638, ../sass/components/_misc.scss */
+/* line 641, ../sass/components/_misc.scss */
 .comment {
   /* Comment's permalink wrapper. */
 }
-/* line 641, ../sass/components/_misc.scss */
+/* line 644, ../sass/components/_misc.scss */
 .comment .permalink {
   text-transform: uppercase;
   font-size: 75%;
 }
 
 /* Nested comments are indented. */
-/* line 648, ../sass/components/_misc.scss */
+/* line 651, ../sass/components/_misc.scss */
 .indented {
   /* Drupal core uses a 25px left margin. */
   margin-left: 30px;
@@ -1574,7 +1586,7 @@ span.field-label {
  * Forms.
  */
 /* Wrapper for a form element (or group of form elements) and its label. */
-/* line 658, ../sass/components/_misc.scss */
+/* line 661, ../sass/components/_misc.scss */
 .form-item {
   margin: 1.5em 0;
   /* Pack groups of checkboxes and radio buttons closer together. */
@@ -1582,47 +1594,47 @@ span.field-label {
   /* Highlight the form elements that caused a form submission error. */
   /* The descriptive help text (separate from the label). */
 }
-/* line 663, ../sass/components/_misc.scss */
+/* line 666, ../sass/components/_misc.scss */
 .form-checkboxes .form-item, .form-radios .form-item {
   /* Drupal core uses "0.4em 0". */
   margin: 0;
 }
-/* line 670, ../sass/components/_misc.scss */
+/* line 673, ../sass/components/_misc.scss */
 tr.odd .form-item, tr.even .form-item {
   margin: 0;
 }
-/* line 677, ../sass/components/_misc.scss */
+/* line 680, ../sass/components/_misc.scss */
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
   border: 1px solid #c00;
 }
-/* line 682, ../sass/components/_misc.scss */
+/* line 685, ../sass/components/_misc.scss */
 .form-item .description {
   font-size: 0.85em;
 }
 
-/* line 689, ../sass/components/_misc.scss */
+/* line 692, ../sass/components/_misc.scss */
 .form-type-radio .description,
 .form-type-checkbox .description {
   margin-left: 2.4em;
 }
 
 /* The part of the label that indicates a required field. */
-/* line 695, ../sass/components/_misc.scss */
+/* line 698, ../sass/components/_misc.scss */
 .form-required {
   color: #c00;
 }
 
 /* Labels for radios and checkboxes. */
-/* line 700, ../sass/components/_misc.scss */
+/* line 703, ../sass/components/_misc.scss */
 label.option {
   display: inline;
   font-weight: normal;
 }
 
 /* Buttons used by contrib modules like Media. */
-/* line 706, ../sass/components/_misc.scss */
+/* line 709, ../sass/components/_misc.scss */
 a.button {
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -1630,14 +1642,14 @@ a.button {
 }
 
 /* Password confirmation. */
-/* line 712, ../sass/components/_misc.scss */
+/* line 715, ../sass/components/_misc.scss */
 .password-parent,
 .confirm-parent {
   margin: 0;
 }
 
 /* Drupal's default login form block. */
-/* line 717, ../sass/components/_misc.scss */
+/* line 720, ../sass/components/_misc.scss */
 #user-login-form {
   text-align: left;
 }
@@ -1649,27 +1661,27 @@ a.button {
  * styling of list items.
  */
 /* OpenID creates a new ul above the login form's links. */
-/* line 729, ../sass/components/_misc.scss */
+/* line 732, ../sass/components/_misc.scss */
 .openid-links {
   /* Position OpenID's ul next to the rest of the links. */
   margin-bottom: 0;
 }
 
 /* The "Log in using OpenID" and "Cancel OpenID login" links. */
-/* line 736, ../sass/components/_misc.scss */
+/* line 739, ../sass/components/_misc.scss */
 .openid-link,
 .user-link {
   margin-top: 1.5em;
 }
 
-/* line 740, ../sass/components/_misc.scss */
+/* line 743, ../sass/components/_misc.scss */
 html.js #user-login-form li.openid-link,
 #user-login-form li.openid-link {
   /* Un-do some of the padding on the ul list. */
   margin-left: -20px;
 }
 
-/* line 744, ../sass/components/_misc.scss */
+/* line 747, ../sass/components/_misc.scss */
 #user-login ul {
   margin: 1.5em 0;
 }
@@ -1677,22 +1689,22 @@ html.js #user-login-form li.openid-link,
 /**
  * Drupal admin tables.
  */
-/* line 752, ../sass/components/_misc.scss */
+/* line 755, ../sass/components/_misc.scss */
 form th {
   text-align: left;
   padding-right: 1em;
   border-bottom: 3px solid #ccc;
 }
-/* line 757, ../sass/components/_misc.scss */
+/* line 760, ../sass/components/_misc.scss */
 form tbody {
   border-top: 1px solid #ccc;
 }
-/* line 760, ../sass/components/_misc.scss */
+/* line 763, ../sass/components/_misc.scss */
 form table ul {
   margin: 0;
 }
 
-/* line 765, ../sass/components/_misc.scss */
+/* line 768, ../sass/components/_misc.scss */
 tr.even,
 tr.odd {
   background-color: #eee;
@@ -1700,26 +1712,26 @@ tr.odd {
   padding: 0.1em 0.6em;
 }
 
-/* line 770, ../sass/components/_misc.scss */
+/* line 773, ../sass/components/_misc.scss */
 tr.even {
   background-color: #fff;
 }
 
 /* Markup generated by theme_tablesort_indicator(). */
-/* line 785, ../sass/components/_misc.scss */
+/* line 788, ../sass/components/_misc.scss */
 td.active {
   background-color: #ddd;
 }
 
 /* Center checkboxes inside table cell. */
-/* line 791, ../sass/components/_misc.scss */
+/* line 794, ../sass/components/_misc.scss */
 td.checkbox,
 th.checkbox {
   text-align: center;
 }
 
 /* Drupal core wrongly puts this in system.menus.css. Since we override that, add it back. */
-/* line 796, ../sass/components/_misc.scss */
+/* line 799, ../sass/components/_misc.scss */
 td.menu-disabled {
   background: #ccc;
 }
@@ -1730,7 +1742,7 @@ td.menu-disabled {
  * @see autocomplete.js
  */
 /* Suggestion list. */
-/* line 807, ../sass/components/_misc.scss */
+/* line 810, ../sass/components/_misc.scss */
 #autocomplete .selected {
   background: #0072b9;
   color: #fff;
@@ -1741,19 +1753,19 @@ td.menu-disabled {
  *
  * @see collapse.js
  */
-/* line 818, ../sass/components/_misc.scss */
+/* line 821, ../sass/components/_misc.scss */
 html.js .collapsible .fieldset-legend {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABJJREFUeJxj+MdQw2DBIMAABgAUsAHD3c3BpwAAAABJRU5ErkJggg==');
   background-position: 5px 65%;
   background-repeat: no-repeat;
   padding-left: 15px;
 }
-/* line 827, ../sass/components/_misc.scss */
+/* line 830, ../sass/components/_misc.scss */
 html.js .collapsed .fieldset-legend {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAABFJREFUCB1jVmCGQClmEWYOAAZ8AMy3HPLXAAAAAElFTkSuQmCC');
   background-position: 5px 50%;
 }
-/* line 834, ../sass/components/_misc.scss */
+/* line 837, ../sass/components/_misc.scss */
 .fieldset-legend .summary {
   color: #999;
   font-size: 0.9em;
@@ -1765,17 +1777,17 @@ html.js .collapsed .fieldset-legend {
  *
  * @see tabledrag.js
  */
-/* line 846, ../sass/components/_misc.scss */
+/* line 849, ../sass/components/_misc.scss */
 tr.drag {
   background-color: #fffff0;
 }
 
-/* line 849, ../sass/components/_misc.scss */
+/* line 852, ../sass/components/_misc.scss */
 tr.drag-previous {
   background-color: #ffd;
 }
 
-/* line 852, ../sass/components/_misc.scss */
+/* line 855, ../sass/components/_misc.scss */
 .tabledrag-toggle-weight {
   font-size: 0.9em;
 }
@@ -1785,7 +1797,7 @@ tr.drag-previous {
  *
  * @see tableselect.js
  */
-/* line 861, ../sass/components/_misc.scss */
+/* line 864, ../sass/components/_misc.scss */
 tr.selected td {
   background: #ffc;
 }
@@ -1795,11 +1807,11 @@ tr.selected td {
  *
  * @see progress.js
  */
-/* line 870, ../sass/components/_misc.scss */
+/* line 873, ../sass/components/_misc.scss */
 .progress {
   font-weight: bold;
 }
-/* line 873, ../sass/components/_misc.scss */
+/* line 876, ../sass/components/_misc.scss */
 .progress .bar {
   background: #ccc;
   border-color: #666;
@@ -1810,7 +1822,7 @@ tr.selected td {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 879, ../sass/components/_misc.scss */
+/* line 882, ../sass/components/_misc.scss */
 .progress .filled {
   background-color: #0072b9;
   background-image: url('../images/progress.gif?1398863088');
@@ -1946,15 +1958,81 @@ tr.selected td {
   width: 30%;
 }
 
-/* line 46, ../sass/components/_islandora.scss */
+/* line 47, ../sass/components/_islandora.scss */
+.featured-additions {
+  width: 72.25%;
+  float: left;
+}
+/* line 50, ../sass/components/_islandora.scss */
+.featured-additions h3 {
+  font-weight: normal;
+  margin: 0.5em 0;
+  border-bottom: 1px solid #000;
+}
+/* line 46, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+.featured-additions .view-frontpage-solr-boxes .view-content:before, .featured-additions .view-frontpage-solr-boxes .view-content:after {
+  content: "";
+  display: table;
+}
+/* line 50, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+.featured-additions .view-frontpage-solr-boxes .view-content:after {
+  clear: both;
+}
+/* line 59, ../sass/components/_islandora.scss */
+.featured-additions .views-row {
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+/* line 62, ../sass/components/_islandora.scss */
+.featured-additions .views-row .views-column .views-field-php {
+  width: 230px;
+  height: 230px;
+  overflow: hidden;
+}
+/* line 66, ../sass/components/_islandora.scss */
+.featured-additions .views-row .views-column .views-field-php img {
+  height: 110%;
+  width: 110%;
+  max-width: 110%;
+  margin: 0 0 0 -10px;
+}
+/* line 74, ../sass/components/_islandora.scss */
+.featured-additions .views-row .views-column-1 {
+  float: left;
+  width: 33.33333%;
+  margin-left: 0%;
+  margin-right: -33.33333%;
+}
+/* line 77, ../sass/components/_islandora.scss */
+.featured-additions .views-row .views-column-2 {
+  float: left;
+  width: 33.33333%;
+  margin-left: 33.33333%;
+  margin-right: -66.66667%;
+}
+/* line 80, ../sass/components/_islandora.scss */
+.featured-additions .views-row .views-column-3 {
+  float: left;
+  width: 33.33333%;
+  margin-left: 66.66667%;
+  margin-right: -100%;
+}
+
+/* line 86, ../sass/components/_islandora.scss */
 .browse-collections {
   width: 22.5%;
   float: left;
 }
-/* line 49, ../sass/components/_islandora.scss */
+/* line 89, ../sass/components/_islandora.scss */
 .browse-collections h2 {
   text-transform: uppercase;
-  font-size: 95%;
+  font-family: Ropa Sans, Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-size: 105%;
   font-weight: normal;
   letter-spacing: 0.75pt;
   background: #323232;
@@ -1962,35 +2040,119 @@ tr.selected td {
   padding: 2px 10px;
   margin-bottom: 0.5em;
 }
-/* line 59, ../sass/components/_islandora.scss */
+/* line 92, ../sass/components/_islandora.scss */
 .browse-collections .views-row {
   margin-bottom: 0.35em;
-  border-bottom: 1px dotted #d2d0cd;
+  border-bottom: 1px dashed #d2d0cd;
 }
-/* line 62, ../sass/components/_islandora.scss */
+/* line 95, ../sass/components/_islandora.scss */
 .browse-collections .views-row a {
   display: block;
   padding-bottom: 0.35em;
 }
-/* line 65, ../sass/components/_islandora.scss */
-.browse-collections .views-row a:link, .browse-collections .views-row a:visited {
-  text-decoration: none;
-}
-/* line 73, ../sass/components/_islandora.scss */
+/* line 100, ../sass/components/_islandora.scss */
 .browse-collections .read-more {
   font-size: 90%;
-  text-decoration: none;
 }
 
-/* line 78, ../sass/components/_islandora.scss */
+/* line 105, ../sass/components/_islandora.scss */
 .recent-additions {
   width: 100%;
   float: left;
 }
-/* line 84, ../sass/components/_islandora.scss */
+/* line 108, ../sass/components/_islandora.scss */
+.recent-additions h2 {
+  font-family: Gentium Basic, Georgia, "Times New Roman", "DejaVu Serif", serif;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0.75pt;
+  margin-bottom: 0.75em;
+  border-bottom: 1px solid #d2d0cd;
+}
+/* line 113, ../sass/components/_islandora.scss */
+.recent-additions h3 {
+  font-weight: normal;
+  margin: 0 0 0.5em;
+}
+/* line 46, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+.recent-additions .view-frontpage-solr-boxes .view-content:before, .recent-additions .view-frontpage-solr-boxes .view-content:after {
+  content: "";
+  display: table;
+}
+/* line 50, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+.recent-additions .view-frontpage-solr-boxes .view-content:after {
+  clear: both;
+}
+/* line 121, ../sass/components/_islandora.scss */
 .recent-additions .views-row {
   float: left;
-  width: 42.5%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+/* line 124, ../sass/components/_islandora.scss */
+.recent-additions .views-row .views-column-1 {
+  float: left;
+  width: 50%;
+  margin-left: 0%;
+  margin-right: -50%;
+}
+/* line 127, ../sass/components/_islandora.scss */
+.recent-additions .views-row .views-column-2 {
+  float: left;
+  width: 50%;
+  margin-left: 50%;
+  margin-right: -100%;
+}
+/* line 130, ../sass/components/_islandora.scss */
+.recent-additions .views-row .views-field {
+  float: left;
+  max-width: 70%;
+}
+/* line 131, ../sass/components/_islandora.scss */
+.recent-additions .views-row .views-field h4 {
+  font-weight: normal;
+  margin: 0 0 0.5em 0;
+}
+/* line 140, ../sass/components/_islandora.scss */
+.recent-additions .views-row .views-field-nothing {
+  max-width: 120px;
+  padding-right: 10px;
+}
+/* line 144, ../sass/components/_islandora.scss */
+.recent-additions .views-row .views-field-dcdescription {
+  padding-top: 0.5em;
+  border-top: 1px dashed #d2d0cd;
+}
+
+/* line 151, ../sass/components/_islandora.scss */
+.ext-links {
+  float: left;
+  width: 30%;
+}
+/* line 154, ../sass/components/_islandora.scss */
+.ext-links h2 {
+  font-family: Gentium Basic, Georgia, "Times New Roman", "DejaVu Serif", serif;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0.75pt;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #d2d0cd;
+}
+/* line 159, ../sass/components/_islandora.scss */
+.ext-links ul {
+  padding: 0;
+  margin-top: 0;
+}
+/* line 162, ../sass/components/_islandora.scss */
+.ext-links ul li {
+  border-bottom: 1px dashed #d2d0cd;
+  margin-bottom: 0.35em;
+  padding-bottom: 0.35em;
 }
 
 /* line 5, ../sass/components/_pages.scss */

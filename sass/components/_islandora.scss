@@ -43,46 +43,130 @@
 		width: 30%;
 	}
 }
+
+.featured-additions {
+	width: 72.25%;
+	float: left;
+	h3 {
+		font-weight: normal;
+		margin: 0.5em 0;
+		border-bottom: 1px solid #000;
+	}
+	.view-frontpage-solr-boxes .view-content {
+		@include zen-grid-container();
+		$zen-column-count: 3;
+	}
+	.views-row {
+		@include zen-grid-item-base();
+		.views-column {
+			.views-field-php {
+				width: 230px;
+				height: 230px;
+				overflow: hidden;
+				img {
+					height: 110%;
+					width: 110%;
+					max-width: 110%;
+					margin: 0 0 0 -10px;
+				}
+			}
+		}
+		.views-column-1 {
+			@include zen-grid-item(1, 1);
+		}
+		.views-column-2 {
+			@include zen-grid-item(1, 2);
+		}
+		.views-column-3 {
+			@include zen-grid-item(1, 3);			
+		}
+	}
+}
+
 .browse-collections {
 	width: 22.5%;
 	float: left;
 	h2 {
-		text-transform: uppercase;
-		font-size: 95%;
-		font-weight: normal;
-		letter-spacing: 0.75pt;
-		background: #323232;
-		color: white;
-		padding: 2px 10px;
-		margin-bottom: 0.5em;
+		@include h2-title-1;	
 	}
 	.views-row {
 		margin-bottom: 0.35em;
-		border-bottom: 1px dotted #d2d0cd;
+		border-bottom: 1px dashed #d2d0cd;
 		a {
 			display: block;
 			padding-bottom: 0.35em;
-			&:link, &:visited {
-				text-decoration: none;
-			}
-			&:hover, &.active {
-				
-			}
 		}
 	}
 	.read-more {
 		font-size: 90%;
-		text-decoration: none;
 	}
 }
+
 .recent-additions {
 	width: 100%;
 	float: left;
 	h2 {
-		
+		@include h2-title-2;
+		margin-bottom: 0.75em;
+		border-bottom: 1px solid #d2d0cd;
+	}
+	h3 {
+		font-weight: normal;
+		margin: 0 0 0.5em;
+	}
+	.view-frontpage-solr-boxes .view-content {
+		@include zen-grid-container();
+		$zen-column-count: 2;
 	}
 	.views-row {
 		float: left;
-		width: 42.5%;
+		@include zen-grid-item-base();
+		.views-column-1 {
+			@include zen-grid-item(1, 1);
+		}
+		.views-column-2 {
+			@include zen-grid-item(1, 2);
+		}
+		.views-field {
+			h4 {
+				font-weight: normal;
+				margin: 0 0 0.5em 0;
+			}
+			float: left;
+			max-width: 70%;
+			.featured-thumb {
+			}
+		}
+		.views-field-nothing {
+			max-width: 120px;
+			padding-right: 10px;
+		}
+		.views-field-dcdescription {
+			padding-top: 0.5em;
+			border-top: 1px dashed #d2d0cd;
+		}
 	}
+}
+
+.ext-links {
+	float: left;
+	width: 30%;
+	h2 {
+		@include h2-title-2;
+		margin-bottom: 0.5em;
+		border-bottom: 1px solid #d2d0cd;
+	}
+	ul {
+		padding: 0;
+		margin-top: 0;
+		li {
+			border-bottom: 1px dashed #d2d0cd;
+			margin-bottom: 0.35em;
+			padding-bottom: 0.35em;
+		}	
+	}
+}
+
+// Shared Views styles //
+.view-frontpage-solr-boxes {
 }
