@@ -956,7 +956,7 @@ table {
 /* line 93, ../sass/components/_misc.scss */
 .header__name-and-slogan {
   float: right;
-  margin: 3em 3em 0 0;
+  margin: 2.35em 3em 0 0;
 }
 /* line 96, ../sass/components/_misc.scss */
 .header__name-and-slogan h1 {
@@ -2039,7 +2039,7 @@ tr.selected td {
   letter-spacing: 0.75pt;
   background: #323232;
   color: white;
-  padding: 2px 10px;
+  padding: 0 10px;
   margin-bottom: 0.5em;
 }
 /* line 92, ../sass/components/_islandora.scss */
@@ -2157,18 +2157,69 @@ tr.selected td {
   padding-bottom: 0.35em;
 }
 
-/* line 175, ../sass/components/_islandora.scss */
+/* line 172, ../sass/components/_islandora.scss */
+.search-php {
+  float: right;
+  position: relative;
+  top: -25px;
+  right: 5px;
+  /* Default State */
+  /* Toggled State */
+}
+/* line 179, ../sass/components/_islandora.scss */
+.search-php input[type=checkbox] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  /* For mobile, it's typically better to position checkbox on top of clickable
+     area and turn opacity to 0 instead. */
+}
+/* line 188, ../sass/components/_islandora.scss */
+.search-php div.hide {
+  display: inline-block;
+  transition: opacity 0.2s ease-in-out 0s;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+/* line 196, ../sass/components/_islandora.scss */
+.search-php label.toggle {
+  display: inline-block;
+  background: url("../images/wrlc/display-search.png") no-repeat top left;
+  width: 20px;
+  height: 20px;
+  opacity: 0.25;
+  transition: opacity 0.2s ease-in-out 0s;
+}
+/* line 203, ../sass/components/_islandora.scss */
+.search-php label.toggle:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+/* line 209, ../sass/components/_islandora.scss */
+.search-php input[type=checkbox]:checked ~ div.hide {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+
+/* line 218, ../sass/components/_islandora.scss */
 #block-islandora-solr-display-switch {
   float: right;
   position: relative;
   top: -46px;
 }
-/* line 180, ../sass/components/_islandora.scss */
+/* line 222, ../sass/components/_islandora.scss */
+#block-islandora-solr-display-switch ul {
+  padding: 0;
+}
+/* line 224, ../sass/components/_islandora.scss */
 #block-islandora-solr-display-switch ul li {
   float: left;
   list-style: none;
 }
-/* line 183, ../sass/components/_islandora.scss */
+/* line 227, ../sass/components/_islandora.scss */
 #block-islandora-solr-display-switch ul li a {
   display: inline-block;
   height: 20px;
@@ -2178,33 +2229,33 @@ tr.selected td {
   opacity: 0.25;
   transition: opacity 0.2s ease-in-out 0s;
 }
-/* line 191, ../sass/components/_islandora.scss */
+/* line 235, ../sass/components/_islandora.scss */
 #block-islandora-solr-display-switch ul li a.display-default {
   background: url("../images/wrlc/display-grid-list.png") no-repeat top left;
   padding-right: 5px;
 }
-/* line 195, ../sass/components/_islandora.scss */
+/* line 239, ../sass/components/_islandora.scss */
 #block-islandora-solr-display-switch ul li a.display-grid {
   background: url("../images/wrlc/display-grid.png") no-repeat top left;
 }
-/* line 198, ../sass/components/_islandora.scss */
+/* line 242, ../sass/components/_islandora.scss */
 #block-islandora-solr-display-switch ul li a:hover {
   opacity: 0.5;
 }
 
-/* line 206, ../sass/components/_islandora.scss */
+/* line 250, ../sass/components/_islandora.scss */
 .islandora-solr-grid {
   width: 100%;
 }
-/* line 208, ../sass/components/_islandora.scss */
+/* line 252, ../sass/components/_islandora.scss */
 .islandora-solr-grid dl.solr-grid-field {
   margin: 1.5em 4% 1.5em 0;
 }
-/* line 211, ../sass/components/_islandora.scss */
+/* line 255, ../sass/components/_islandora.scss */
 .islandora-solr-grid dd.solr-grid-caption {
   margin-top: 5px;
 }
-/* line 213, ../sass/components/_islandora.scss */
+/* line 257, ../sass/components/_islandora.scss */
 .islandora-solr-grid dd.solr-grid-caption a {
   text-decoration: none;
 }
@@ -2233,8 +2284,28 @@ tr.selected td {
 }
 
 /* line 27, ../sass/components/_pages.scss */
+.sidebars h2 {
+  text-transform: uppercase;
+  font-family: Ropa Sans, Helvetica, Arial, "Nimbus Sans L", sans-serif;
+  font-size: 105%;
+  font-weight: normal;
+  letter-spacing: 0.75pt;
+  background: #323232;
+  color: white;
+  padding: 0 10px;
+  margin-bottom: 0.5em;
+}
+/* line 30, ../sass/components/_pages.scss */
+.sidebars h3 {
+  font-family: Gentium Basic, Georgia, "Times New Roman", "DejaVu Serif", serif;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0.75pt;
+}
+/* line 33, ../sass/components/_pages.scss */
 .sidebars ul {
-  padding: 0 0 0 15px;
+  padding: 0 !important;
+  list-style: none;
 }
 
 /* SMACSS theme rules */

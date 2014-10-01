@@ -23,8 +23,18 @@
 
 // Sidebar Stuff //
 
-.sidebars {
+.sidebars {	
+	h2 {
+		@include h2-title-1;	
+	}
+	h3 {
+		@include h2-title-2;
+	}
 	ul {
-		padding: 0 0 0 15px;
+		padding: 0 !important;
+		list-style: none;
+		li {
+
+		}
 	}
 }

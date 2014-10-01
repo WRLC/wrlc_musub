@@ -169,6 +169,49 @@
 
 //** Search Results **//
 
+.search-php {
+	float: right;
+	position: relative;
+	top: -25px;
+	right: 5px;
+	#islandora-solr-simple-search-form {
+	}
+	input[type=checkbox] {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+   /* For mobile, it's typically better to position checkbox on top of clickable
+      area and turn opacity to 0 instead. */
+	}
+
+	/* Default State */
+	div.hide {
+		display: inline-block;
+		transition: opacity 0.2s ease-in-out 0s;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+	}
+	label.toggle {
+		display: inline-block;
+		background: url("../images/wrlc/display-search.png") no-repeat top left;
+		width: 20px;
+		height: 20px;
+		opacity: 0.25;
+		transition: opacity 0.2s ease-in-out 0s;
+		&:hover {
+			opacity: 0.5;
+			cursor: pointer;
+		}
+	}
+	/* Toggled State */
+	input[type=checkbox]:checked ~ div.hide {
+		opacity: 1;
+		height: auto;
+		width: auto;
+	}
+}
 
 // Islandora Displays
 
@@ -177,6 +220,7 @@
   position: relative;
   top: -46px;
   ul {
+  	padding: 0;
   	li {
   		float: left;
   		list-style: none;
