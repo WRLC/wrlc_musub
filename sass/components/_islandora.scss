@@ -166,3 +166,137 @@
 		}	
 	}
 }
+
+//** Search Results **//
+
+.search-php {
+	float: right;
+	position: relative;
+	top: -25px;
+	right: 3px;
+	#islandora-solr-simple-search-form {
+		.form-text {
+			border: 1px solid #ceccc9;
+			border-radius: 3px;
+			color: #aeb0af;
+			height: 1.75em;
+			padding-left: 0.5em;
+			width: 15em;
+		}
+		.form-submit {
+			display: none;
+		}
+	}
+	input[type=checkbox] {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+		/* For mobile, it's typically better to position checkbox on top of clickable
+		area and turn opacity to 0 instead. */
+	}
+
+	/* Default State */
+	div.hide {
+		display: inline-block;
+		transition: opacity 0.2s ease-in-out 0s;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+	}
+	label.toggle {
+		display: inline-block;
+		background: url("../images/wrlc/display-search.png") no-repeat left top;
+		width: 20px;
+		height: 20px;
+		opacity: 0.25;
+		transition: opacity 0.2s ease-in-out 0s;
+		&:hover {
+			opacity: 0.5;
+			cursor: pointer;
+		}
+	}
+	/* Toggled State */
+	input[type=checkbox]:checked ~ div.hide {
+		opacity: 1;
+		height: auto;
+		width: auto;
+		margin-top: -1px;
+	}
+}
+
+// Islandora Displays
+
+#block-islandora-solr-display-switch {
+  float: right;
+  position: relative;
+  top: -46px;
+  ul {
+  	padding: 0;
+  	li {
+  		display: inline;
+  		list-style: none;
+  		a {
+			display: inline-block;
+			height: 20px;
+			outline: medium none;
+			text-indent: -9999px;
+			width: 20px;
+			opacity: 0.25;
+			transition: opacity 0.2s ease-in-out 0s;		
+			&.display-default {
+	  			background: url("../images/wrlc/display-grid-list.png") no-repeat top left;
+	  			padding-right: 3px;
+			}
+			&.display-grid {
+	  			background: url("../images/wrlc/display-grid.png") no-repeat top left;
+			}
+			&:hover {
+				opacity: 0.5;
+			}
+  		}
+  	}	
+  }
+}
+// This could be removed if Islandora display switches shared classes //
+.islandora-basic-collection-display-switch {
+	ul {
+		li {
+			padding: 0;
+			float: right;
+			a {
+				display: inline-block;
+				height: 20px;
+				outline: medium none;
+				text-indent: -9999px;
+				width: 20px;
+				opacity: 0.25;
+				transition: opacity 0.2s ease-in-out 0s;		
+				&.islandora-view-list {
+		  			background: url("../images/wrlc/display-grid-list.png") no-repeat top left;
+		  			padding-right: 7px;
+				}
+				&.islandora-view-grid {
+		  			background: url("../images/wrlc/display-grid.png") no-repeat top left;
+				}
+				&:hover {
+					opacity: 0.5;
+				}	
+			}
+		}
+	}
+}
+
+
+.islandora-solr-grid {
+	width: 100%;
+	dl.solr-grid-field {
+		margin: 1.5em 4% 1.5em 0;
+	}
+	dd.solr-grid-caption {
+		margin-top: 5px;
+		a {
+			text-decoration: none;
+		}
+	}
+}

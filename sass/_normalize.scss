@@ -146,9 +146,10 @@ body {
 a {
   &:link, &:visited {
     text-decoration: none;
+    color: #717072;
   }
   &:hover, &:focus, &:active, &.active {
-
+    color: #009fda;
   }
 }
 
