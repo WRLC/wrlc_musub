@@ -130,3 +130,27 @@ function wrlc_primary_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+
+/**
+ * Override or insert variables into the islandora templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("block" in this case.)
+ */
+function wrlc_primary_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if (strpos($root_path, 'islandora/object/%') === 0) {
+    if (isset($data['tabs'][0]['output'])) {
+      foreach ($data['tabs'][0]['output'] as $key => &$tab) {
+        if ($tab['#link']['path'] == 'islandora/object/%/print_object') {
+          if ($root_path == 'islandora/object/%') {
+            $tab['#prefix'] = '<li class="tabs-primary__tab">'; 
+            $tab['#text'] = t('Print');
+            $tab['#options']['attributes']['class'] = array("tabs-primary__tab-link");
+          }
+        }
+      }
+    }
+  }
+}

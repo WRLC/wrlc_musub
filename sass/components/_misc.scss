@@ -167,9 +167,8 @@
       padding: 0;
       list-style-type: none;
       list-style-image: none;
-      background: #EBEBEB;
-      opacity: 0.75;
-      transition: all 0.3s ease 0s;
+      background: #f1f1f1;
+      transition: background 0.3s ease 0s;
       a {
         display: block;
         border-right: 1px solid #000;
@@ -177,13 +176,13 @@
         text-align: center;
         margin-top: 5px;
         color: #000;
-        transition: all 0.3s ease 0s;
+        transition: color 0.3s ease 0s;
         &:hover, &.active {
           color: #009FDA;
         }
       }
       &:hover, &.active {
-        opacity: 1;
+        background: #ebebeb;
       }
       // Button Colors
       &:nth-child(1) {
@@ -343,8 +342,8 @@
   @include background-image(linear-gradient(bottom, $tabs-border 1px, transparent 1px));
   /* IE 9 and earlier don't understand gradients. */
   list-style: none;
-  border-bottom: 1px solid $tabs-border \0/ie;
-  margin: rhythm(1) 0;
+  border-bottom: 1px solid $tabs-border;
+  margin: rhythm(0.5) 0;
   padding: 0 2px;
   white-space: nowrap;
 }
