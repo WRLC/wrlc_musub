@@ -214,29 +214,53 @@
 /**
   * Footer and block navigation
   */
-.footer-navigation {
-  background: #000;
-  .menu {
-    display: table;
-    width: 100%;
-    padding: 0;
-    li {
-      display: table-cell;
-      letter-spacing: 0.5pt;
-      font-size: 90%;
-      text-transform: uppercase;
-      width: 20%;
-      text-align: center;
-      a {
+#footer {
+  border-top: 8px solid #000;
+  .footer-navigation {
+    &.bottom {
+      background: #000;
+      a:link, a:visited {
         color: #fff;
-        text-decoration: none;
-        display: block;
-        padding: 0.6em;
+      }
+      a:hover {
+        color: #009fda;
+      }
+    }
+    &.top {
+      margin: 0;
+      ul {
+        margin: 0.5em 0;
+        li:nth-child(3) {
+          a {
+            text-indent: -9999px;
+            background: url(../images/wrlc/muislandora_logo_footer.png) no-repeat center center;
+            width: 32px; height: 60px;
+            padding: 0;
+          } 
+        } 
+      }
+    }
+    .menu {
+      display: table;
+      width: 100%;
+      padding: 0;
+      li {
+        display: table-cell;
+        letter-spacing: 0.5pt;
+        font-size: 90%;
+        text-transform: uppercase;
+        width: 20%;
+        text-align: center;
+        vertical-align: middle;
+        a {
+          text-decoration: none;
+          display: inline-block;
+          padding: 0.6em;
+        }
       }
     }
   }
 }
-
 
 /**
  * Breadcrumb navigation.

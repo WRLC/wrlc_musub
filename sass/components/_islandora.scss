@@ -5,7 +5,7 @@
 // FP Simple Search //
 
 #block-islandora-solr-simple {
-	margin: 3em auto;
+	margin: 5em auto;
 	width: 60%;
 	input.form-text {
 		width: 100%;
@@ -49,7 +49,8 @@
 	float: left;
 	h3 {
 		font-weight: normal;
-		margin: 0.5em 0;
+		padding: 0.5em 0;
+		margin: 0 0 0.5em;
 		border-bottom: 1px solid #000;
 	}
 	.view-frontpage-solr-boxes .view-content {
@@ -59,6 +60,9 @@
 	.views-row {
 		@include zen-grid-item-base();
 		.views-column {
+			.views-field {
+				max-width: 230px;
+			}
 			.views-field-php {
 				width: 230px;
 				height: 230px;
@@ -105,9 +109,10 @@
 .recent-additions {
 	width: 100%;
 	float: left;
+	border-bottom: 8px solid #000;
 	h2 {
 		@include h2-title-2;
-		margin-bottom: 0.75em;
+		margin-bottom: 0.85em;
 		border-bottom: 1px solid #d2d0cd;
 	}
 	h3 {
@@ -121,6 +126,7 @@
 	.views-row {
 		float: left;
 		@include zen-grid-item-base();
+		padding: 0 0 3em;
 		.views-column-1 {
 			@include zen-grid-item(1, 1);
 		}
@@ -128,6 +134,7 @@
 			@include zen-grid-item(1, 2);
 		}
 		.views-field {
+			width: 100%;
 			h4 {
 				font-weight: normal;
 				margin: 0 0 0.5em 0;
@@ -144,9 +151,35 @@
 		.views-field-dcdescription {
 			padding-top: 0.5em;
 			border-top: 1px dashed #d2d0cd;
+			font-size: 90%;
 		}
 	}
 }
+
+#block-islandora-solr-explore {
+	float: left;
+	width: 70%;
+	margin-top: -6.6em;
+	h2 {
+		@include h2-title-1;
+	}
+	ul {
+		padding: 0;
+		list-style: none;
+		li {
+			display: inline-block;
+			text-transform: uppercase;
+			font-family: Ropa Sans;
+			font-size: 125%;
+			letter-spacing: 0.3pt;
+			padding-right: 4%;
+			&.last {
+				padding: 0;
+			}
+		}
+	}
+}
+
 
 .ext-links {
 	float: left;
