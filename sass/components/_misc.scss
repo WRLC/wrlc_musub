@@ -126,7 +126,9 @@
 
 /* The secondary menu (login, etc.) */
 .header__secondary-menu {
-  float: right;
+  //float: right;
+  position: absolute;
+  right: 2em;
 }
 
 /* Wrapper for any blocks placed in the header region. */
