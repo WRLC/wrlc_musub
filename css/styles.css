@@ -2014,12 +2014,12 @@ tr.selected td {
   border-bottom: 1px solid #000;
 }
 /* line 46, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
-.featured-additions .view-frontpage-solr-boxes .view-content:before, .featured-additions .view-frontpage-solr-boxes .view-content:after {
+.featured-additions .view-wrlc-frontpage-solr-boxes .view-content:before, .featured-additions .view-wrlc-frontpage-solr-boxes .view-content:after {
   content: "";
   display: table;
 }
 /* line 50, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
-.featured-additions .view-frontpage-solr-boxes .view-content:after {
+.featured-additions .view-wrlc-frontpage-solr-boxes .view-content:after {
   clear: both;
 }
 /* line 60, ../sass/components/_islandora.scss */
@@ -2124,12 +2124,12 @@ tr.selected td {
   margin: 0 0 0.5em;
 }
 /* line 46, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
-.recent-additions .view-frontpage-solr-boxes .view-content:before, .recent-additions .view-frontpage-solr-boxes .view-content:after {
+.recent-additions .view-wrlc-frontpage-solr-boxes .view-content:before, .recent-additions .view-wrlc-frontpage-solr-boxes .view-content:after {
   content: "";
   display: table;
 }
 /* line 50, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
-.recent-additions .view-frontpage-solr-boxes .view-content:after {
+.recent-additions .view-wrlc-frontpage-solr-boxes .view-content:after {
   clear: both;
 }
 /* line 126, ../sass/components/_islandora.scss */
