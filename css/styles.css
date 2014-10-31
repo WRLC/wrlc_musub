@@ -2185,7 +2185,6 @@ tr.selected td {
 #block-islandora-solr-explore {
   float: left;
   width: 70%;
-  margin-top: -6.6em;
 }
 /* line 163, ../sass/components/_islandora.scss */
 #block-islandora-solr-explore h2 {
