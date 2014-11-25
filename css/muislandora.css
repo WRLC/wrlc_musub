@@ -1,0 +1,84 @@
+/**
+* muislandora specific site theme overrides.
+*/
+#header{
+  margin-top: 0em !important;
+}
+#pre_header {
+  width:100%;
+  height:3em;
+}
+
+#pre_header_account_wrapper {
+  margin-right: 1.5em;
+  margin-top: 0.7em;
+  float: right;
+}
+
+.fontawsome-chevron{
+  text-shadow: 1px 1px 1px #ccc;
+  font-size: 1.5em;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 1px #ccc !important;
+}
+
+#block-islandora-solr-simple > a {
+    margin-right: -55px;
+    color: blue; 
+    float: right;
+}
+
+#pre_header_account_wrapper > a {
+  margin-right: 0.5em;
+}
+
+.social-media-pre-header {
+  border-bottom-color: -moz-use-text-color;
+    border-bottom-style: none;
+    border-bottom-width: 0;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 0.9em;
+}
+ 
+#widgets-element-socialmedia_profile-default{
+  float: right;
+}
+ 
+.widgets-style-horizontal{
+  margin-right: 0.5em;
+}
+
+.pre-header-block-wrapper{
+  float: right
+}
+
+#edit-islandora-simple-search-query{
+  background-color: lightgray;
+}
+
+.browse-collections {
+  height: 50px !important;
+}
+
+.featured-additions .views-row .views-column .views-field-php {
+  height: auto !important;
+  width: auto !important;
+}
+.ext-links { 
+  padding-left: .5em !important;
+  padding-right: .5em !important;
+}
+
+.ext-links ul li {
+	list-style-image: none !important;
+    list-style-type: none !important;
+}
+.list-group-item > a{
+list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+div.contextual-links-wrapper {
+  right: 25px !important;
+}

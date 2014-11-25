@@ -31,3 +31,8 @@ function wrlc_primary_form_system_theme_settings_alter(&$form, &$form_state, $fo
 
   // We are editing the $form in place, so we don't need to return anything.
 }
+
+function wrlc_primary_settings($saved_settings) {
+  dpm($saved_settings, "saved settings");
+  $defaults = zen_theme_get_default_settings('dscpublic');
+}

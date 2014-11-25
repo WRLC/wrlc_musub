@@ -79,6 +79,19 @@
   }
 }
 
+
+@media screen and (max-width: 900px){
+  .browse-collections { display:none; }
+  
+  .featured-additions{
+    width: 100%;
+  }
+  
+  #block-islandora-solr-explore{
+    width: 100%;
+  }
+}
+
 /**
  * Use 3 grid columns for smaller screens.
  */
