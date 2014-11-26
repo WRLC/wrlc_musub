@@ -1,0 +1,24 @@
+/**
+* auislandora specific site theme overrides.
+*/
+
+#header {
+  padding-bottom: 3em !important;
+}
+
+.header__logo {
+  margin-top: 2em !important;
+  float: none !important;
+}
+
+#header_logo_wrapper{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 1.5em;
+}
+
+#footer .footer-navigation.top ul li:nth-child(3) a {
+  background-image: url("../images/multisite_logos/aul-footer-logo.png") !important;
+  width: 130px !important;
+}

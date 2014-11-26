@@ -1,0 +1,26 @@
+/**
+* dcislandora specific site theme overrides.
+*/
+.header__logo {
+  margin-top: 2em !important;
+  float: none !important;
+  max-height: 200px;
+}
+
+.header__logo-image {
+  max-height: 200px;
+}
+#header_logo_wrapper{
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+#navigation .links li, #navigation .menu li {
+  border-top-color: #fac700 !important;
+}
+
+#footer .footer-navigation.top ul li:nth-child(3) a {
+  background-image: url("../images/multisite_logos/dcislandora_footer.png") !important;
+  width: 130px !important;
+}

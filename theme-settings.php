@@ -12,22 +12,11 @@ function wrlc_primary_form_system_theme_settings_alter(&$form, &$form_state, $fo
   if (isset($form_id)) {
     return;
   }
+}
 
-  // Create the form using Forms API: http://api.drupal.org/api/7
-
-  /* -- Delete this line if you want to use this setting
-  $form['wrlc_primary_example'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t('wrlc_primary sample setting'),
-    '#default_value' => theme_get_setting('wrlc_primary_example'),
-    '#description'   => t("This option doesn't do anything; it's just an example."),
-  );
-  // */
-
-  // Remove some of the base theme's settings.
-  /* -- Delete this line if you want to turn off this setting.
-  unset($form['themedev']['zen_wireframes']); // We don't need to toggle wireframes on this site.
-  // */
-
-  // We are editing the $form in place, so we don't need to return anything.
+/**
+ * Implements hook_settings().
+ */
+function wrlc_primary_settings($saved_settings) {
+  $defaults = zen_theme_get_default_settings('dscpublic');
 }
