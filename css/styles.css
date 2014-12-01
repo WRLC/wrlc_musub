@@ -1531,7 +1531,7 @@ span.field-label {
 /* line 580, ../sass/components/_misc.scss */
 .menu__item.is-leaf {
   list-style: none;
-  /* 
+  /*
   list-style-image: inline-image("menu-leaf.png");
    @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
      *list-style-image: image-url("menu-leaf.png");
@@ -2452,7 +2452,7 @@ tr.selected td {
 .sidebars ul li a {
   font-size: 105%;
   display: inline-block;
-  width: 100%;
+  width: 80%;
 }
 /* line 51, ../sass/components/_pages.scss */
 .sidebars ul li span.plusminus {

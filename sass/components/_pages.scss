@@ -23,9 +23,9 @@
 
 // Sidebar Stuff //
 
-.sidebars {	
+.sidebars {
 	h2 {
-		@include h2-title-1;	
+		@include h2-title-1;
 	}
 	h3 {
 		@include h2-title-2;
@@ -46,7 +46,7 @@
 			a {
 				font-size: 105%;
 				display: inline-block;
-				width: 100%;
+				width: 80%;
 			}
 			span.plusminus {
 				display: none;
@@ -72,7 +72,7 @@
 		font-size: 90%;
 		&:after {
 			content: " »";
-		}	
+		}
 		&:link, &:visited {
 			color: #003359;
 		}
@@ -86,7 +86,7 @@
 .no-sidebars {
 	h1 {
 		text-align: center;
-		
+
 	}
 	.search-php {
 		top: 0;
