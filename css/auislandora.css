@@ -22,3 +22,19 @@
   background-image: url("../images/multisite_logos/aul-footer-logo.png") !important;
   width: 130px !important;
 }
+
+#navigation .links li:nth-child(1){
+  border-top-color: #459393 !important;
+}
+
+#navigation .links li:nth-child(2){
+  border-top-color: #5C3D1F !important;
+}
+
+#navigation .links li:nth-child(3){
+  border-top-color: #7AA300 !important;
+}
+
+#navigation .links li:nth-child(4){
+  border-top-color: #00527A !important;
+}
