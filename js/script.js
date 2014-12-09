@@ -16,37 +16,50 @@
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
+    $('#islandora-solr-simple-search-form input.form-text', context).once('my_custom_behavior', function() {
+      if ($(this).val() == Drupal.t('')) $(this).val('Search...');
+      $(this).focus(function() {
+        if ($(this).val() == '') {
+          $(this).val(Drupal.t('Search...'));
+        }
+        else {
+          $(this).val(Drupal.t(''));
+        }
+      });
+      $(this).focusout(function() {
+        if ($(this).val() == '') {
+          $(this).val(Drupal.t('Search...'));
+        }
+        else {
+          $(this).val(Drupal.t(''));
+        }
+      });
+      }
+    );
+    // Fix the footer position on AJAX callbacks.
+    positionFooter();
+  }
+};
 
-    // Adds placeholder text in the islandora solr simple search form
-	$('#islandora-solr-simple-search-form input.form-text', context).val(Drupal.t('Search...'));
-	  $('#islandora-solr-simple-search-form input.form-text', context).focus(function() {
-	      if ($(this).val() == Drupal.t('Search...')) $(this).val('');
-	  });
-	  $('#islandora-solr-simple-search-form input.form-text', context).blur(function() {
-	      if ($(this).val() == '') $(this).val(Drupal.t('Search...'));
-	  });
-	  }
-	};
-
-	// Sticky footer
-	function positionFooter() {
-	    var mFoo = $("#footer");
-	    if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < $(window).height() && mFoo.css("position") != "fixed")) {
-	        mFoo.css({
-	            position: "fixed",
-	            bottom: "0px"
-	        });
-	    } else {
-	        mFoo.css({
-	            position: "static"
-	        });
-	    }
-	}
-	$(document).ready(function () {
-	    positionFooter();
-	    $(window).scroll(positionFooter);
-	    $(window).resize(positionFooter);
-	    $(window).load(positionFooter);
-	});
-
+  // Sticky footer
+  function positionFooter() {
+    var mFoo = $("#footer");
+    if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < $(window).height() && mFoo.css("position") != "fixed")) {
+      mFoo.css({
+        position: "fixed",
+        bottom: "0px"
+      });
+    }
+    else {
+      mFoo.css({
+        position: "static"
+      });
+    }
+  }
+  $(document).ready(function () {
+      positionFooter();
+      $(window).scroll(positionFooter);
+      $(window).resize(positionFooter);
+      $(window).load(positionFooter);
+  });
 })(jQuery, Drupal, this, this.document);
