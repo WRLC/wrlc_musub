@@ -35,6 +35,7 @@ function wrlc_primary_preprocess_page(&$vars) {
     }
   }
 
+  // Switch on site host to provide applicable CSS.
   switch ($site) {
     case 'auislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/Digital-Research-Portal-header.png");
