@@ -26,31 +26,60 @@
 function wrlc_primary_preprocess_page(&$vars) {
   $site = $_SERVER['HTTP_HOST'];
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
+  // Set Active status for 'About' and 'Search' nodes.
+  if (!empty($vars['node'])) {
+    // Applys to nodes of type page only.
+    if ($vars['node']->type == "page") {
+      menu_tree_set_path('main-menu',"uuid/node/" . $vars['node']->nid);
+      menu_set_active_item("uuid/node/" . $vars['node']->uuid);
+    }
+  }
 
-  // Switch on site host to provide applicable CSS.
   switch ($site) {
     case 'auislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/Digital-Research-Portal-header.png");
       $vars['site_name'] = "";
       drupal_add_css(path_to_theme() . '/css/auislandora.css', 'theme', 'all');
       break;
+
     case 'dcislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/dcislandora_logo.png");
       $vars['site_name'] = "";
       drupal_add_css(path_to_theme() . '/css/dcislandora.css', 'theme', 'all');
       break;
+
     case 'cuislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/cuislandora-logo.png");
       $vars['site_name'] = "Digital Collections";
       $vars['site_slogan'] = "University Libraries";
       drupal_add_css(path_to_theme() . '/css/cuislandora.css', 'theme', 'all');
       break;
+
     case 'gaislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/gaislandora_logo.png");
       $vars['site_name'] = "The University Library Archives";
       $vars['site_slogan'] = "";
       drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
       break;
+
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu_link().
+ *
+ * Set menu items as 'active', with the class active.
+ *
+ * @param array $vars
+ *   An indexed array of menu elements.
+ */
+function wrlc_primary_preprocess_menu_link(&$vars) {
+  $element = &$vars['element'];
+  // Settings the 'Browse' menu item here, so as not to reset the
+  // menu tree path. This could cause woe's with any module level
+  // hook_preprocess_(html) functions.
+  if ($element['#href'] == "islandora" && strpos(current_path(), "islandora/object") !== FALSE) {
+    $element['#localized_options']['attributes']['class'][] = "active";
   }
 }
 
