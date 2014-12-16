@@ -26,14 +26,6 @@
 function wrlc_primary_preprocess_page(&$vars) {
   $site = $_SERVER['HTTP_HOST'];
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
-  // Set Active status for 'About' and 'Search' nodes.
-  if (!empty($vars['node'])) {
-    // Applys to nodes of type page only.
-    if ($vars['node']->type == "page") {
-      menu_tree_set_path('main-menu',"uuid/node/" . $vars['node']->nid);
-      menu_set_active_item("uuid/node/" . $vars['node']->uuid);
-    }
-  }
 
   // Switch on site host to provide applicable CSS.
   switch ($site) {
@@ -67,6 +59,41 @@ function wrlc_primary_preprocess_page(&$vars) {
 }
 
 /**
+ * Implement hook pattern for links__system_main_menu().
+ *
+ * This function will apply active class when
+ * appropriate in the main menu.
+ *
+ * @param array $variables
+ *   The 'system_main_menu' menu links.
+ *
+ * @return string
+ *   html content as string.
+ */
+function wrlc_primary_links__system_main_menu($variables) {
+  $html = "<div>\n";
+  $html .= " <ul class='links inline clearfix'>\n";
+  $current = drupal_get_path_alias();
+
+  foreach ($variables['links'] as $link) {
+    $lpath = drupal_get_path_alias($link['href']);
+    // Used to ensure browse is selected
+    // when viewing islandora items.
+    $pos = strpos($current, $lpath);
+    if ($lpath == $current || $pos === 0) {
+      $link['attributes']['class'][] = 'active';
+    }
+    $menu_link = l($link['title'], $link['href'], $link);
+    $html .= "<li>" . $menu_link . "</li>";
+  }
+
+  $html .= "  </ul>\n";
+  $html .= "</div>\n";
+
+  return $html;
+}
+
+/**
  * Implements hook_preprocess_menu_link().
  *
  * Set menu items as 'active', with the class active.
@@ -74,16 +101,27 @@ function wrlc_primary_preprocess_page(&$vars) {
  * @param array $vars
  *   An indexed array of menu elements.
  */
-function wrlc_primary_preprocess_menu_link(&$vars) {
-  $element = &$vars['element'];
-  // Settings the 'Browse' menu item here, so as not to reset the
-  // menu tree path. This could cause woe's with any module level
-  // hook_preprocess_(html) functions.
-  if ($element['#href'] == "islandora" && strpos(current_path(), "islandora/object") !== FALSE) {
-    $element['#localized_options']['attributes']['class'][] = "active";
-  }
-}
+//function wrlc_primary_menu_link(array $variables) {
+//   dpm($variables, "hello there");
+//   dsm($variables, "hello there");
 
+
+//   $link['html'] = TRUE;
+//   $output .= l('<span class="whatever">' . $link['title'] . '</span>', $link['href'], $link);
+
+
+//   $element = &$vars['element'];
+//   // Settings the 'Browse' menu item here, so as not to reset the
+//   // menu tree path. This could cause woe's with any module level
+//   // hook_preprocess_(html) functions.
+//   if ($element['#href'] == "islandora" && strpos(current_path(), "islandora/object") !== FALSE) {
+//     $element['#localized_options']['attributes']['class'][] = "active";
+//   }
+//}
+
+// function wrlc_primary_links__main_menu(&$variables) {
+//   dpm($variables, "vars::");
+// }
 /**
  * Return a themed breadcrumb trail.
  *
