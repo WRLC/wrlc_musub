@@ -94,35 +94,6 @@ function wrlc_primary_links__system_main_menu($variables) {
 }
 
 /**
- * Implements hook_preprocess_menu_link().
- *
- * Set menu items as 'active', with the class active.
- *
- * @param array $vars
- *   An indexed array of menu elements.
- */
-//function wrlc_primary_menu_link(array $variables) {
-//   dpm($variables, "hello there");
-//   dsm($variables, "hello there");
-
-
-//   $link['html'] = TRUE;
-//   $output .= l('<span class="whatever">' . $link['title'] . '</span>', $link['href'], $link);
-
-
-//   $element = &$vars['element'];
-//   // Settings the 'Browse' menu item here, so as not to reset the
-//   // menu tree path. This could cause woe's with any module level
-//   // hook_preprocess_(html) functions.
-//   if ($element['#href'] == "islandora" && strpos(current_path(), "islandora/object") !== FALSE) {
-//     $element['#localized_options']['attributes']['class'][] = "active";
-//   }
-//}
-
-// function wrlc_primary_links__main_menu(&$variables) {
-//   dpm($variables, "vars::");
-// }
-/**
  * Return a themed breadcrumb trail.
  *
  * @param $breadcrumb
