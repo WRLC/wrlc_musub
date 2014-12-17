@@ -87,12 +87,11 @@ audio:not([controls]) {
   top: 0;
   bottom: 0;
   margin: auto;
-    background: red;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -khtml-border-radius: 8px;  
-    border-radius: 8px;
-    overflow: hidden;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;  
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /**
