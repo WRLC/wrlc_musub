@@ -50,6 +50,7 @@ stylesheets[all][] = system.messages.css
 stylesheets[all][] = system.theme.css
 
 ; Then we add our own stylesheet.
+stylesheets[all][] = css/footer_styles.css
 stylesheets[all][] = css/styles.css
 stylesheets[all][] = css/font-awesome/css/font-awesome.min.css
 stylesheets[all][] = css/layouts/responsive.css

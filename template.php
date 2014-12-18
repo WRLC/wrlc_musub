@@ -52,8 +52,17 @@ function wrlc_primary_preprocess_page(&$vars) {
       drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
       break;
   }
+
+
 }
 
+// function wrlc_primary_preprocess_region(&$variables) {
+//   dsm($variables, "vars");
+// }
+// function wrlc_primary_preprocess_region__footer(&$variable) {
+//   dpm(array(), "string");
+//   dsm(array(), "string");
+// }
 /**
  * Return a themed breadcrumb trail.
  *
