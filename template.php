@@ -94,19 +94,6 @@ function wrlc_primary_links__system_main_menu($variables) {
 }
 
 /**
- * Return a themed breadcrumb trail.
- *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
- * @return a string containing the breadcrumb output.
- */
-function wrlc_primary_breadcrumb($breadcrumb) {
-  if (!empty($breadcrumb)) {
-    return '<div class="breadcrumb">'. implode(' › ', $breadcrumb['breadcrumb']) .'</div>';
-  }
-}
-
-/**
  * Override or insert variables into the islandora templates.
  *
  * @param $variables

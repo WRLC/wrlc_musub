@@ -34,6 +34,15 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
       }
     );
 
+    // Fix an issue with sticky footer when
+    // using IA Bookreader.
+    if ($('.BRicon').length) {
+      $('.BRicon').mouseup(function() {
+        // Need the slightest pause. Let
+        // CSS take affect first.
+        window.setTimeout(positionFooter,1);
+      });
+    }
     // Sticky footer
     function positionFooter() {
       var mFoo = $("#footer");
