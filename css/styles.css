@@ -73,6 +73,32 @@ audio:not([controls]) {
   display: none;
 }
 
+.featured-additions .view-wrlc-frontpage-solr-boxes .view-content .views-responsive-grid .views-row .views-column .views-field.views-field-php .field-content > a {
+  display: table;
+  width: 100%;
+  position: relative;
+  height: 0;
+  padding: 100% 0 0 0;
+  overflow: hidden;
+}
+
+.featured-additions .view-wrlc-frontpage-solr-boxes .view-content .views-responsive-grid .views-row .views-column .views-field .field-content > a > img{
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;  
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 /**
  * Base
  *
