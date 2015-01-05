@@ -74,13 +74,13 @@ function wrlc_primary_links__system_main_menu($variables) {
   $html = "<div>\n";
   $html .= " <ul class='links inline clearfix'>\n";
   $current = drupal_get_path_alias();
-
   foreach ($variables['links'] as $link) {
     $lpath = drupal_get_path_alias($link['href']);
+    $lower = strtolower($link['title']);
+    $pos = strpos($current, $lpath);
     // Used to ensure browse is selected
     // when viewing islandora items.
-    $pos = strpos($current, $lpath);
-    if ($lpath == $current || $pos === 0) {
+    if (strpos($current, $lower) !== FALSE || $pos === 0) {
       $link['attributes']['class'][] = 'active';
     }
     $menu_link = l($link['title'], $link['href'], $link);
