@@ -68,32 +68,6 @@ audio:not([controls]) {
   display: none;
 }
 
-.solr-featured-additions-view .view-content .views-responsive-grid .views-row .views-column .views-field.views-field-php .field-content > a {
-  display: table;
-  width: 100%;
-  position: relative;
-  height: 0;
-  padding: 56.25% 0 0 0;
-  overflow: hidden;
-}
-
-.solr-featured-additions-view .view-content .views-responsive-grid .views-row .views-column .views-field .field-content > a > img{
-  position: absolute;
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -khtml-border-radius: 8px;  
-  border-radius: 8px;
-  overflow: hidden;
-}
-
 /**
  * Base
  *
@@ -2074,7 +2048,6 @@ tr.selected td {
   width: 110%;
   max-width: 110%;
   margin: 0 0 0 -10px;
-  
 }
 /* line 78, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column-1 {
@@ -2122,7 +2095,7 @@ tr.selected td {
 }
 /* line 99, ../sass/components/_islandora.scss */
 .browse-collections .views-row a {
-  display: block; 
+  display: block;
   padding-bottom: 0.35em;
 }
 /* line 104, ../sass/components/_islandora.scss */
