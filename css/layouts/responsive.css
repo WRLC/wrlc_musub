@@ -77,6 +77,40 @@
   }
 }
 
+@media screen and (max-width: 480px){
+  #islandora-solr-simple-search-form{
+    -webkit-text-size-adjust:100%
+  }
+  .responsive-menus.responsified span.toggler {
+    padding-top: 3px !important;
+    padding-bottom: 2px !important;
+  }
+  .feed-icon{
+    display:none;
+  }
+  #block-menu-menu-footer-menu-top{
+    margin-bottom: 0px !important;
+  }
+  #block-menu-menu-links{
+    float:left;
+    clear:left;
+    width:100%;
+  }
+  #block-islandora-usage-stats-top-downloads{
+    float:left;
+    clear:left;
+    width:100%;
+  }
+  #block-islandora-usage-stats-top-search{
+    float:left;
+    clear:left;
+    width:100%;
+  }
+  .ext-links {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
 
 @media screen and (max-width: 900px){
   .browse-collections { display:none; }

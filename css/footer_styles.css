@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Footer region specific styles.
+ */
+
+.region-bottom {
+  font-size: 80%;
+  text-align: center;
+  clear: both;
+}
+
+.region-bottom > div > p {
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+#block-menu-menu-footer-menu-top {
+  margin-bottom:0;
+}
