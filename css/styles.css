@@ -73,7 +73,7 @@ audio:not([controls]) {
   display: none;
 }
 
-.featured-additions .view-wrlc-frontpage-solr-boxes .view-content .views-responsive-grid .views-row .views-column .views-field.views-field-php .field-content > a {
+.front .views-field > span > a {
   display: table;
   width: 100%;
   position: relative;
@@ -82,7 +82,7 @@ audio:not([controls]) {
   overflow: hidden;
 }
 
-.featured-additions .view-wrlc-frontpage-solr-boxes .view-content .views-responsive-grid .views-row .views-column .views-field .field-content > a > img{
+.front .views-field > span > a > img{
   position: absolute;
   display: block;
   max-width: 100%;
@@ -99,34 +99,16 @@ audio:not([controls]) {
   overflow: hidden;
 }
 
-.recent-additions .view-id-wrlc_frontpage_solr_boxes .view-content .views-responsive-grid .views-row .views-column .views-field-nothing .field-content > a{
-  display: table;
+.front .views-field-fgs-label-s > span > a{
+  padding-top: 0;
+}
+
+.front .recent-additions .view-wrlc-frontpage-solr-boxes .view-content .views-responsive-grid .views-row {
   width: 100%;
-  position: relative;
-  height: 0;
-  padding: 100% 0 0 0;
-  overflow: hidden;
 }
 
-.recent-additions .view-id-wrlc_frontpage_solr_boxes .view-content .views-responsive-grid .views-row .views-column .views-field-nothing .field-content > a > img{
-  position: absolute;
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -khtml-border-radius: 8px;  
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.recent-additions .view-wrlc-frontpage-solr-boxes .view-content .views-responsive-grid .views-row {
-  width: 80%;
+.front .views-field-dctitle{
+  padding-top: 12px;
 }
 /**
  * Base
