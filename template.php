@@ -34,24 +34,63 @@ function wrlc_primary_preprocess_page(&$vars) {
       $vars['site_name'] = "";
       drupal_add_css(path_to_theme() . '/css/auislandora.css', 'theme', 'all');
       break;
+
     case 'dcislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/dcislandora_logo.png");
       $vars['site_name'] = "";
       drupal_add_css(path_to_theme() . '/css/dcislandora.css', 'theme', 'all');
       break;
+
     case 'cuislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/cuislandora-logo.png");
       $vars['site_name'] = "Digital Collections";
       $vars['site_slogan'] = "University Libraries";
       drupal_add_css(path_to_theme() . '/css/cuislandora.css', 'theme', 'all');
       break;
+
     case 'gaislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/gaislandora_logo.png");
       $vars['site_name'] = "The University Library Archives";
       $vars['site_slogan'] = "";
       drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
       break;
+
   }
+}
+
+/**
+ * Implement hook pattern for links__system_main_menu().
+ *
+ * This function will apply active class when
+ * appropriate in the main menu.
+ *
+ * @param array $variables
+ *   The 'system_main_menu' menu links.
+ *
+ * @return string
+ *   html content as string.
+ */
+function wrlc_primary_links__system_main_menu($variables) {
+  $html = "<div>\n";
+  $html .= " <ul class='links inline clearfix'>\n";
+  $current = drupal_get_path_alias();
+  foreach ($variables['links'] as $link) {
+    $lpath = drupal_get_path_alias($link['href']);
+    $lower = strtolower($link['title']);
+    $pos = strpos($current, $lpath);
+    // Used to ensure browse is selected
+    // when viewing islandora items.
+    if (strpos($current, $lower) !== FALSE || $pos === 0) {
+      $link['attributes']['class'][] = 'active';
+    }
+    $menu_link = l($link['title'], $link['href'], $link);
+    $html .= "<li>" . $menu_link . "</li>";
+  }
+
+  $html .= "  </ul>\n";
+  $html .= "</div>\n";
+
+  return $html;
 }
 
 /**

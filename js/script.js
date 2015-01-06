@@ -58,7 +58,6 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
         });
       }
     }
-    
     // Fix the footer position on AJAX callbacks.
     positionFooter();
 
