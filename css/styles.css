@@ -24,11 +24,11 @@
  * Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
  *       @see http://snook.ca/archives/html_and_css/no_css_reset/
  */
- 
- #edit-islandora-simple-search-query{
-   color: #666666 !important;
- }
- 
+
+#edit-islandora-simple-search-query{
+  color: #666666 !important;
+}
+
 /**
  * HTML5 display definitions
  */
