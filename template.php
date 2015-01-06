@@ -73,15 +73,29 @@ function wrlc_primary_preprocess_page(&$vars) {
 function wrlc_primary_links__system_main_menu($variables) {
   $html = "<div>\n";
   $html .= " <ul class='links inline clearfix'>\n";
+
   $current = drupal_get_path_alias();
+  $parsed_url = explode('/', $current);
   foreach ($variables['links'] as $link) {
-    $lpath = drupal_get_path_alias($link['href']);
-    $lower = strtolower($link['title']);
-    $pos = strpos($current, $lpath);
-    // Used to ensure browse is selected
-    // when viewing islandora items.
-    if (strpos($current, $lower) !== FALSE || $pos === 0) {
+    // Handle the 'about' and 'Home' menu links.
+    if (strtolower($link['title']) == 'about' && $current == "content/about") {
       $link['attributes']['class'][] = 'active';
+    }
+    if (strtolower($link['title']) == 'home' && $current == "frontpage") {
+      $link['attributes']['class'][] = 'active';
+    }
+    // Set the 'Browse' and 'Search/Search Results' page active menu item.
+    if (count($parsed_url) >= 2) {
+      if (($parsed_url[0] == "content" || $parsed_url[0] == "islandora") && $parsed_url[1] == "search") {
+        if (strtolower($link['title']) == 'search') {
+          $link['attributes']['class'][] = 'active';
+        }
+      }
+      if ($parsed_url[0] == "islandora" && $parsed_url[1] == "object") {
+        if (strtolower($link['title']) == 'browse') {
+          $link['attributes']['class'][] = 'active';
+        }
+      }
     }
     $menu_link = l($link['title'], $link['href'], $link);
     $html .= "<li>" . $menu_link . "</li>";
@@ -94,14 +108,12 @@ function wrlc_primary_links__system_main_menu($variables) {
 }
 
 /**
- * Override or insert variables into the islandora templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("block" in this case.)
+ * Implements hook_menu_local_tasks_alter().
  */
 function wrlc_primary_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // The purpose of this hook implementation is to
+  // Override or insert custom variables into the
+  // islandora templates.
   if (strpos($root_path, 'islandora/object/%') === 0) {
     if (isset($data['tabs'][0]['output'])) {
       foreach ($data['tabs'][0]['output'] as $key => &$tab) {
