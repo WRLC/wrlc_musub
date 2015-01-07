@@ -111,6 +111,10 @@ audio:not([controls]) {
   padding-top: 12px;
 }
 
+fieldset.islandora.islandora-metadata.collapsible.collapsed.collapse-processed {
+  padding-bottom: 20px !important;
+}
+
 /**
  * Base
  *
@@ -450,16 +454,16 @@ fieldset {
   /* Apply borders and padding that keep the vertical rhythm. */
   border-color: #c0c0c0;
   border-top-style: solid;
-  border-top-width: 0.0625em;
+  border-top-width: 0.1025em;
   padding-top: 0.4625em;
   border-bottom-style: solid;
-  border-bottom-width: 0.0625em;
+  border-bottom-width: 0.1025em;
   padding-bottom: 0.9125em;
   border-left-style: solid;
-  border-left-width: 0.0625em;
+  border-left-width: 0.1025em;
   padding-left: 0.9125em;
   border-right-style: solid;
-  border-right-width: 0.0625em;
+  border-right-width: 0.1025em;
   padding-right: 0.9125em;
 }
 
