@@ -79,10 +79,11 @@
   }
 }
 
+#islandora-solr-simple-search-form{
+  -webkit-text-size-adjust:100%
+}
+
 @media screen and (max-width: 480px){
-  #islandora-solr-simple-search-form{
-    -webkit-text-size-adjust:100%
-  }
   .responsive-menus.responsified span.toggler {
     padding-top: 3px !important;
     padding-bottom: 2px !important;
