@@ -113,7 +113,8 @@ function wrlc_primary_links__system_main_menu($variables) {
 function wrlc_primary_form_alter(&$variables) {
   // Add a title to the simple search text area of 'Search'.
   if ($variables['#id'] == 'islandora-solr-simple-search-form') {
-    $variables['simple']['islandora_simple_search_query']['#attributes']['title'] = array('title' => t("Search"));
+    $variables['simple']['islandora_simple_search_query']['#attributes']['title'] =
+      array('title' => t("Search"));
   }
 }
 
