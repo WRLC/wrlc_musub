@@ -77,6 +77,7 @@ audio:not([controls]) {
   display: table;
   width: 100%;
   position: relative;
+  max-width: 10em;
   height: 0;
   padding: 100% 0 0 0;
   overflow: hidden;
@@ -85,13 +86,14 @@ audio:not([controls]) {
 .front .views-field > span > a > img{
   position: absolute;
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  width: auto;
+  height: 100%;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto;
+  max-height: 10em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -khtml-border-radius: 8px;  
@@ -2084,7 +2086,13 @@ tr.selected td {
   width: 230px;
   height: 230px;
   overflow: hidden;
+  max-height: 13em;
 }
+
+.recent-additions {
+  padding-top: 1em;
+}
+
 /* line 70, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column .views-field-php img {
   height: 110%;
@@ -2228,6 +2236,8 @@ tr.selected td {
 #block-islandora-solr-explore {
   float: left;
   width: 70%;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
 /* line 163, ../sass/components/_islandora.scss */
 #block-islandora-solr-explore h2 {
