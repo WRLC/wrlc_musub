@@ -2100,10 +2100,10 @@ tr.selected td {
 
 /* line 70, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column .views-field-php img {
-  height: 110%;
-  width: 110%;
-  max-width: 110%;
-  margin: 0 0 0 -10px;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 0 0px;
 }
 /* line 78, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column-1 {
