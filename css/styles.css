@@ -57,6 +57,14 @@ video {
   display: inline-block;
 }
 
+.content-page-bottom{
+  right: 10px;
+  left: 10px;
+}
+#mediaplayer {
+  max-width: 100%;
+}
+
 /**
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.

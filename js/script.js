@@ -36,7 +36,7 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
 
     // Sticky footer
     function positionFooter() {
-      var mFoo = $("#footer");
+      var mFoo = $(".content-page-bottom");
       if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < $(window).height() && mFoo.css("position") != "fixed")) {
         mFoo.css({
           position: "fixed",
