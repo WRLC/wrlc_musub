@@ -116,9 +116,9 @@
     <?php endif; ?>
 
   </div>
-
+  <div class="content-page-bottom">
   <?php print render($page['footer']); ?>
+  <?php print render($page['bottom']); ?>
+  </div>
 
 </div>
-
-<?php print render($page['bottom']); ?>

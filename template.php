@@ -56,6 +56,7 @@ function wrlc_primary_preprocess_page(&$vars) {
       break;
 
   }
+
 }
 
 /**
