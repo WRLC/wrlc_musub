@@ -12,6 +12,7 @@ stylesheets[all][] = css/font-awesome/css/font-awesome.min.css
 stylesheets[all][] = css/layouts/responsive.css
 
 scripts[] = js/script.js
+scripts[] = js/jquery.fittext.js
 
 regions[pre_header]     = Pre Header
 regions[header]         = Header
