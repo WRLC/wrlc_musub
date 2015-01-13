@@ -26,7 +26,7 @@
 function wrlc_primary_preprocess_page(&$vars) {
   $site = $_SERVER['HTTP_HOST'];
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
-
+  $site = "muislandora.wrlc.org";
   // Switch on site host to provide applicable CSS.
   switch ($site) {
     case 'auislandora.wrlc.org':
@@ -53,6 +53,10 @@ function wrlc_primary_preprocess_page(&$vars) {
       $vars['site_name'] = "The University Library Archives";
       $vars['site_slogan'] = "";
       drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
+      break;
+
+    case 'muislandora.wrlc.org':
+      drupal_add_css(path_to_theme() . '/css/muheader.css', 'theme', 'all');
       break;
 
   }

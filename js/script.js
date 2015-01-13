@@ -13,6 +13,7 @@
 (function ($, Drupal, window, document, undefined) {
 
 
+
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
   attach: function(context, settings) {
@@ -36,6 +37,7 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
 
     // Sticky footer
     function positionFooter() {
+      scaleSiteNameAndSlogan();
       var mFoo = $(".content-page-bottom");
       if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < $(window).height() && mFoo.css("position") != "fixed")) {
         mFoo.css({
@@ -47,6 +49,17 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
         mFoo.css({
           position: "static"
         });
+      }
+    }
+
+    function scaleSiteNameAndSlogan() {
+      $("#site-name").fitText(1, {maxFontSize: '25px'});
+      $("#site-slogan").fitText(1, {maxFontSize: '20px'});
+      
+      var lng = $('.header__site-link>span').text().length;
+      if (lng > 31) {
+        // Longer text needs more agressive formatting to fit.
+        $(".header__site-link").fitText(1.7, {maxFontSize: '20px'});
       }
     }
 
