@@ -55,6 +55,10 @@ function wrlc_primary_preprocess_page(&$vars) {
       drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
       break;
 
+    case 'muislandora.wrlc.org':
+      drupal_add_css(path_to_theme() . '/css/muheader.css', 'theme', 'all');
+      break;
+
   }
 
 }
