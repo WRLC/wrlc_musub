@@ -10,6 +10,7 @@ stylesheets[all][] = css/footer_styles.css
 stylesheets[all][] = css/styles.css
 stylesheets[all][] = css/font-awesome/css/font-awesome.min.css
 stylesheets[all][] = css/layouts/responsive.css
+stylesheets[all][] = css/muheader.css
 
 scripts[] = js/script.js
 scripts[] = js/jquery.fittext.js

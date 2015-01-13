@@ -55,6 +55,13 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
     function scaleSiteNameAndSlogan() {
       $("#site-name").fitText(1, {maxFontSize: '25px'});
       $("#site-slogan").fitText(1, {maxFontSize: '20px'});
+      
+      var lng = $('.header__site-link>span').text().length;
+      console.log(lng);
+      if (lng > 31) {
+    	  // Longer text needs more agressive formatting to fit.
+        $(".header__site-link").fitText(1.7, {maxFontSize: '20px'});
+      }
     }
 
     // Fix the footer position on AJAX callbacks.
