@@ -26,7 +26,7 @@
 function wrlc_primary_preprocess_page(&$vars) {
   $site = $_SERVER['HTTP_HOST'];
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
-  $site = "muislandora.wrlc.org";
+  $site = "cuislandora.wrlc.org";
   // Switch on site host to provide applicable CSS.
   switch ($site) {
     case 'auislandora.wrlc.org':
@@ -55,7 +55,7 @@ function wrlc_primary_preprocess_page(&$vars) {
       drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
       break;
 
-    case 'muislandora.wrlc.org':
+    default:
       drupal_add_css(path_to_theme() . '/css/muheader.css', 'theme', 'all');
       break;
 
