@@ -25,7 +25,7 @@
  *       @see http://snook.ca/archives/html_and_css/no_css_reset/
  */
 
-.featured-thumb, .islandora-basic-collection-thumb > a > img, .solr-thumb > dt > a > img, .islandora-basic-collection-object > dl > dt > a > img{ 
+.featured-thumb, .islandora-basic-collection-thumb > a > img, .solr-thumb > dt > a > img, .islandora-basic-collection-object > dl > dt > a > img, .islandora-compound-object-jail, .islandora-compound-thumb > a > img{ 
   border:1px solid #021a40 !important;
 }
 
