@@ -26,12 +26,12 @@
  */
 
 .featured-thumb, .islandora-basic-collection-thumb > a > img, .solr-thumb > dt > a > img, .islandora-basic-collection-object > dl > dt > a > img{ 
-   border:1px solid #021a40 !important;
+  border:1px solid #021a40 !important;
 }
 
 #edit-islandora-simple-search-query{
   color: #666666 !important;
-} 
+}
 
 /**
  * HTML5 display definitions
