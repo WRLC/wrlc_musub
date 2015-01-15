@@ -131,8 +131,8 @@ function wrlc_primary_links__system_main_menu($variables) {
 function wrlc_primary_form_alter(&$variables) {
   // Add a title to the simple search text area of 'Search'.
   if ($variables['#id'] == 'islandora-solr-simple-search-form') {
-    $variables['simple']['islandora_simple_search_query']['#attributes']['title'] =
-      array('title' => t("Search"));
+    $variables['simple']['islandora_simple_search_query']['#attributes']['title']
+      = array('title' => t("Search"));
   }
 }
 
@@ -142,7 +142,7 @@ function wrlc_primary_form_alter(&$variables) {
 function wrlc_primary_preprocess_islandora_basic_collection_wrapper(&$variables) {
   // Add the title to 'Grid view' and 'List view', for use as tool tips.
   foreach ($variables['view_links'] as $key => $value) {
-    $variables['view_links'][$key]['attributes']['title'] = array('title' => t($value['title']));
+    $variables['view_links'][$key]['attributes']['title'] = array('title' => t("@title", array('@title' => $value['title'])));
   }
 }
 
