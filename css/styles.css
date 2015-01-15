@@ -65,8 +65,7 @@ video {
 }
 
 .content-page-bottom{
-  right: 10px;
-  left: 10px;
+  width:100% !important;
 }
 #mediaplayer {
   max-width: 100%;
