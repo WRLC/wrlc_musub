@@ -8,6 +8,16 @@
  */
 
 /**
+ * Override or insert variables into the page template for HTML output.
+ */
+function wrlc_primary_process_html(&$variables) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_html_alter($variables);
+  }
+}
+
+/**
  * Implements hook preprocess_page().
  *
  * Hook implementation is used to provide style
@@ -24,6 +34,10 @@
  *   An array of available page level variables.
  */
 function wrlc_primary_preprocess_page(&$vars) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_page_alter($variables);
+  }
   $site = $_SERVER['HTTP_HOST'];
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
 
@@ -116,8 +130,8 @@ function wrlc_primary_links__system_main_menu($variables) {
 function wrlc_primary_form_alter(&$variables) {
   // Add a title to the simple search text area of 'Search'.
   if ($variables['#id'] == 'islandora-solr-simple-search-form') {
-    $variables['simple']['islandora_simple_search_query']['#attributes']['title'] =
-      array('title' => t("Search"));
+    $variables['simple']['islandora_simple_search_query']['#attributes']['title']
+      = array('title' => t("Search"));
   }
 }
 
@@ -127,7 +141,7 @@ function wrlc_primary_form_alter(&$variables) {
 function wrlc_primary_preprocess_islandora_basic_collection_wrapper(&$variables) {
   // Add the title to 'Grid view' and 'List view', for use as tool tips.
   foreach ($variables['view_links'] as $key => $value) {
-    $variables['view_links'][$key]['attributes']['title'] = array('title' => t($value['title']));
+    $variables['view_links'][$key]['attributes']['title'] = array('title' => t("@title", array('@title' => $value['title'])));
   }
 }
 
