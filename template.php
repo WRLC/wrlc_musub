@@ -8,6 +8,16 @@
  */
 
 /**
+ * Override or insert variables into the page template for HTML output.
+ */
+function wrlc_primary_process_html(&$variables) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_html_alter($variables);
+  }
+}
+
+/**
  * Implements hook preprocess_page().
  *
  * Hook implementation is used to provide style
@@ -24,6 +34,10 @@
  *   An array of available page level variables.
  */
 function wrlc_primary_preprocess_page(&$vars) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_page_alter($variables);
+  }
   $site = $_SERVER['HTTP_HOST'];
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
   // Switch on site host to provide applicable CSS.
