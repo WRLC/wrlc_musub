@@ -1271,6 +1271,10 @@ table {
 /**
  * Breadcrumb navigation.
  */
+.breadcrumb {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 /* line 271, ../sass/components/_misc.scss */
 .breadcrumb ol {
   margin: 0;
