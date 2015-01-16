@@ -25,7 +25,24 @@
  *       @see http://snook.ca/archives/html_and_css/no_css_reset/
  */
 
-.featured-thumb, .islandora-basic-collection-thumb > a > img, .solr-thumb > dt > a > img, .islandora-basic-collection-object > dl > dt > a > img, .islandora-compound-object-jail, .islandora-compound-thumb > a > img{ 
+
+.islandora-pdf-link{
+  display: none;
+}
+
+.download-link-wrapper{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.download-link-wrapper > a{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.featured-thumb, .islandora-basic-collection-thumb > a > img, .solr-thumb > dt > a > img, .islandora-basic-collection-object > dl > dt > a > img, .islandora-compound-object-jail, .islandora-compound-thumb > a > img{
   border:1px solid #bbbbbb !important;
 }
 
