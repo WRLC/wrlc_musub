@@ -7,6 +7,10 @@
   font-size: 80%;
   text-align: center;
   clear: both;
+/*   float: left; */
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .region-bottom > div > p {
@@ -18,4 +22,8 @@
 
 #block-menu-menu-footer-menu-top {
   margin-bottom:0;
+}
+
+.content-page-bottom{
+  width: 100% !important;
 }

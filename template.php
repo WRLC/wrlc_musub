@@ -40,31 +40,31 @@ function wrlc_primary_preprocess_page(&$vars) {
   }
   $site = $_SERVER['HTTP_HOST'];
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
+
+  $vars['site_name'] = variable_get('site_name', "");
+  $vars['site_slogan'] = variable_get('site_slogan', "");
   // Switch on site host to provide applicable CSS.
   switch ($site) {
     case 'auislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/Digital-Research-Portal-header.png");
-      $vars['site_name'] = "";
       drupal_add_css(path_to_theme() . '/css/auislandora.css', 'theme', 'all');
       break;
 
     case 'dcislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/dcislandora_logo.png");
-      $vars['site_name'] = "";
       drupal_add_css(path_to_theme() . '/css/dcislandora.css', 'theme', 'all');
       break;
 
     case 'cuislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/cuislandora-logo.png");
-      $vars['site_name'] = "Digital Collections";
-      $vars['site_slogan'] = "University Libraries";
+      $vars['site_name'] = variable_get('site_name', "Digital Collections");
+      $vars['site_slogan'] = variable_get('site_slogan', "University Libraries");
       drupal_add_css(path_to_theme() . '/css/cuislandora.css', 'theme', 'all');
       break;
 
     case 'gaislandora.wrlc.org':
       $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/gaislandora_logo.png");
-      $vars['site_name'] = "The University Library Archives";
-      $vars['site_slogan'] = "";
+      $vars['site_name'] = variable_get('site_name', "The University Library Archives");
       drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
       break;
 
@@ -73,7 +73,6 @@ function wrlc_primary_preprocess_page(&$vars) {
       break;
 
   }
-
 }
 
 /**

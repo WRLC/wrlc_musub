@@ -11,9 +11,6 @@
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
-
-
-
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
   attach: function(context, settings) {
@@ -34,22 +31,40 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
       });
       }
     );
-
     // Sticky footer
     function positionFooter() {
       scaleSiteNameAndSlogan();
       var mFoo = $(".content-page-bottom");
-      if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < $(window).height() && mFoo.css("position") != "fixed")) {
+      if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < ($(window).height() - 100) && mFoo.css("position") != "fixed")) {
         mFoo.css({
-          position: "fixed",
-          bottom: "0px"
+          'position': "fixed",
+          'bottom': "0px",
+          'width': $('#header').width(),
+          'max-width': $('#main').width(),
         });
       }
       else {
         mFoo.css({
-          position: "static"
+          'position': "static",
+          'width': $('#header').width(),
+          'max-width': $('#main').width(),
         });
       }
+    }
+
+    // Special use case, when exiting full screen mode
+    // of the IR Bookreader. Because of other .js in 
+    // the bookreader, calling 'positionFooter()' at
+    // this point cant be trusted, so set the correct 
+    // css values manually.
+    if ($('.BRicon.full').length > 0) {
+      $(".BRicon.full").mouseup(function() {
+        $(".content-page-bottom").css({
+          'position': "static",
+          'width': $('#header').width(),
+          'max-width': $('#main').width(),
+        });
+      });
     }
 
     function scaleSiteNameAndSlogan() {
