@@ -25,6 +25,16 @@
  *       @see http://snook.ca/archives/html_and_css/no_css_reset/
  */
 
+
+#page {
+  height: 100% !important;
+}
+
+#main {
+  height: 100% !important;
+}
+
+
 .featured-thumb, .islandora-basic-collection-thumb > a > img, .solr-thumb > dt > a > img, .islandora-basic-collection-object > dl > dt > a > img, .islandora-compound-object-jail, .islandora-compound-thumb > a > img{ 
   border:1px solid #021a40 !important;
 }
@@ -684,7 +694,7 @@ table {
 .region-bottom {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px;
+/*   max-width: 1200px; */
   padding: 0 10px;
 }
 
