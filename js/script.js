@@ -35,7 +35,7 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
     function positionFooter() {
       scaleSiteNameAndSlogan();
       var mFoo = $(".content-page-bottom");
-      if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < $(window).height() && mFoo.css("position") != "fixed")) {
+      if ((($(document.body).height() + mFoo.outerHeight()) < $(window).height() && mFoo.css("position") == "fixed") || ($(document.body).height() < ($(window).height() - 100) && mFoo.css("position") != "fixed")) {
         mFoo.css({
           'position': "fixed",
           'bottom': "0px",
