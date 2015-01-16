@@ -25,6 +25,22 @@
  *       @see http://snook.ca/archives/html_and_css/no_css_reset/
  */
 
+.islandora-pdf-link{
+  display: none;
+}
+
+.download-link-wrapper{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.download-link-wrapper > a{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #edit-islandora-simple-search-query{
   color: #666666 !important;
 }
