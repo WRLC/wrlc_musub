@@ -25,6 +25,7 @@
  *       @see http://snook.ca/archives/html_and_css/no_css_reset/
  */
 
+<<<<<<< HEAD
 .islandora-pdf-link{
   display: none;
 }
@@ -39,6 +40,10 @@
   padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+=======
+.featured-thumb, .islandora-basic-collection-thumb > a > img, .solr-thumb > dt > a > img, .islandora-basic-collection-object > dl > dt > a > img, .islandora-compound-object-jail, .islandora-compound-thumb > a > img{ 
+  border:1px solid #bbbbbb !important;
+>>>>>>> fe80ce0fc4dd4ba2392b3ba9e8d8d3c5e6d829aa
 }
 
 #edit-islandora-simple-search-query{
@@ -71,6 +76,13 @@ audio,
 canvas,
 video {
   display: inline-block;
+}
+
+.content-page-bottom{
+  width:100% !important;
+}
+#mediaplayer {
+  max-width: 100%;
 }
 
 /**
@@ -106,8 +118,8 @@ audio:not([controls]) {
 .front .views-field > span > a > img{
   position: absolute;
   display: block;
-  width: auto;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   left: 0;
   right: 0;
   top: 0;
@@ -1272,6 +1284,10 @@ table {
 /**
  * Breadcrumb navigation.
  */
+.breadcrumb {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 /* line 271, ../sass/components/_misc.scss */
 .breadcrumb ol {
   margin: 0;
@@ -2120,9 +2136,6 @@ tr.selected td {
 
 /* line 70, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column .views-field-php img {
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
   margin: 0 0 0 0px;
 }
 /* line 78, ../sass/components/_islandora.scss */

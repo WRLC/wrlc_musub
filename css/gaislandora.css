@@ -64,12 +64,16 @@
   border-top-color: #FF8533 !important;
 }
 .header__logo-image {
-  max-height: 200px;   
+  max-height: 10em;
   height: auto;
-  max-width: 100%;
-  max-width: 20em !important;
 }
-
+.header__site-link{
+  display: block !important;
+  width: 100%;
+}
+.header__site-link > span{
+  padding-left:30px;
+}
 #footer .footer-navigation.top ul li:nth-child(3) a {
   background-image: url("../images/multisite_logos/gaislandora_logo_footer.png") !important;
   width: 132px !important;

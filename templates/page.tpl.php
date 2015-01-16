@@ -13,7 +13,7 @@
     <?php print render($page['pre_header']); ?>
   </div>
   <header class="header" id="header" role="banner">
-
+  <div class="header-content-wrapper">
     <?php if ($logo): ?>
     <div id="header_logo_wrapper">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
@@ -51,7 +51,7 @@
     <?php endif; ?>
 
     <?php print render($page['header']); ?>
-
+  </div>
   </header>
 
   <div id="main">
@@ -116,9 +116,9 @@
     <?php endif; ?>
 
   </div>
-
+  <div class="content-page-bottom">
   <?php print render($page['footer']); ?>
+  <?php print render($page['bottom']); ?>
+  </div>
 
 </div>
-
-<?php print render($page['bottom']); ?>
