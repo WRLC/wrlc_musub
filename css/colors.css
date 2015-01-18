@@ -44,6 +44,9 @@ a:active {
   background-color: #f6f6f2;
   border-color: #f9f9f9;
 }
+html{
+  background: #f9f9f9;
+}
 #page-wrapper,
 #footer-wrapper {
   background: #292929;
