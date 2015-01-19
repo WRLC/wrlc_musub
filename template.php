@@ -7,6 +7,14 @@
  * @see https://drupal.org/node/1728096
  */
 
+// Constants that represent each of the multi-sites this theme supports. It's assumed that the $base_url will contain
+// one, and only one of these constants as a way to let the theme know which multi-site is being referred to.
+define('WRLC_PRIMARY_SITE_AU', 'auislandora');
+define('WRLC_PRIMARY_SITE_CU', 'cuislandora');
+define('WRLC_PRIMARY_SITE_DC', 'dcislandora');
+define('WRLC_PRIMARY_SITE_MU', 'muislandora');
+define('WRLC_PRIMARY_SITE_GA', 'gaislandora');
+
 /**
  * Override or insert variables into the page template for HTML output.
  */
@@ -36,43 +44,175 @@ function wrlc_primary_process_html(&$variables) {
 function wrlc_primary_preprocess_page(&$vars) {
   // Hook into color.module.
   if (module_exists('color')) {
-    _color_page_alter($variables);
+    _color_page_alter($vars);
   }
-  $site = $_SERVER['HTTP_HOST'];
+  $multi_site = wrlc_primary_get_multi_site();
+  $vars['logo'] = wrlc_primary_get_logo_path($multi_site);
+  $vars['site_name'] = wrlc_primary_get_site_name($multi_site);
+  $vars['site_slogan'] = wrlc_primary_get_site_slogan($multi_site);
+  wrlc_primary_multi_site_add_css($multi_site);
+}
+
+/**
+ * Gets a string describing which multi-site the $base_url is referring to.
+ *
+ * @return string
+ *   A string describing which multi-site the $base_url is referring to, if $base_url does not contain one of the
+ *   supported site names, then FALSE is returned.
+ */
+function wrlc_primary_get_multi_site() {
+  global $base_url;
+  $multi_sites = array(
+    WRLC_PRIMARY_SITE_AU,
+    WRLC_PRIMARY_SITE_CU,
+    WRLC_PRIMARY_SITE_DC,
+    WRLC_PRIMARY_SITE_MU,
+    WRLC_PRIMARY_SITE_GA,
+  );
+  foreach ($multi_sites as $site) {
+    if (strpos($base_url, $site) !== FALSE) {
+      return $site;
+    }
+  }
+  // To prevent potential problems in supporting a theme without a name the default is assumed to always be Marymount
+  // University, aka MU.
+  return WRLC_PRIMARY_SITE_MU;
+}
+
+/**
+ * Gets the default logo path to use for the given multi_site
+ *
+ * @param string $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ *
+ * @return string
+ *   The path to the default logo.
+ */
+function wrlc_primary_get_default_logo_path($multi_site) {
+  // MU is the default, hence it has the normal default logo path.
+  $default_logos = array(
+    WRLC_PRIMARY_SITE_AU => '/images/multisite_logos/Digital-Research-Portal-header.png',
+    WRLC_PRIMARY_SITE_CU => '/images/multisite_logos/cuislandora-logo.png',
+    WRLC_PRIMARY_SITE_DC => '/images/multisite_logos/dcislandora_logo.png',
+    WRLC_PRIMARY_SITE_MU => '/logo.png',
+    WRLC_PRIMARY_SITE_GA => '/images/multisite_logos/gaislandora_logo.png',
+  );
+  $default_logo = $default_logos[$multi_site];
+  return url(path_to_theme() . $default_logo);
+}
+
+/**
+ * Gets the path to the logo if one is to be displayed.
+ *
+ * @param $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ *
+ * @return null|string
+ *   The path to the logo if the logo is to be shown, NULL otherwise.
+ */
+function wrlc_primary_get_logo_path($multi_site) {
+  // The user has toggled the display of the logo to off.
+  if (!theme_get_setting('logo')) {
+    return NULL;
+  }
+  // Either the theme settings are set to use the default logo or one that the user has provided.
+  return theme_get_setting('default_logo', 'wrlc_primary') ?
+    // We have a different default logo depending on the multi-site given in the $base_url.
+    wrlc_primary_get_default_logo_path($multi_site) :
+    file_create_url(theme_get_setting('logo_path'));
+}
+
+/**
+ * Gets the default site name for the given multi-site.
+ *
+ * @param $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ *
+ * @return string
+ *   The default site name for the given multi-site.
+ */
+function wrlc_primary_get_default_site_name($multi_site) {
+  $default_site_names = array(
+    WRLC_PRIMARY_SITE_AU => '',
+    WRLC_PRIMARY_SITE_CU => 'Digital Collections',
+    WRLC_PRIMARY_SITE_DC => '',
+    WRLC_PRIMARY_SITE_MU => 'The University Library Archives',
+    WRLC_PRIMARY_SITE_GA => 'The University Library Archives',
+  );
+  return $default_site_names[$multi_site];
+}
+
+/**
+ * Gets the site name if one is to be displayed.
+ *
+ * @param $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ *
+ * @return null|string
+ *   The site name if one is to be displayed, otherwise NULL.
+ */
+function wrlc_primary_get_site_name($multi_site) {
+  if (!theme_get_setting('toggle_name', 'wrlc_primary')) {
+    return NULL;
+  }
+  return variable_get('site_name', wrlc_primary_get_default_site_name($multi_site));
+}
+
+/**
+ * Gets the default site slogan for the given multi-site.
+ *
+ * @param $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ *
+ * @return string
+ *   The default site slogan for the given multi-site.
+ */
+function wrlc_primary_get_default_site_slogan($multi_site) {
+  $default_site_slogans = array(
+    WRLC_PRIMARY_SITE_AU => '',
+    WRLC_PRIMARY_SITE_CU => 'University Libraries',
+    WRLC_PRIMARY_SITE_DC => '',
+    WRLC_PRIMARY_SITE_MU => '',
+    WRLC_PRIMARY_SITE_GA => '',
+  );
+  return $default_site_slogans[$multi_site];
+}
+
+/**
+ * Gets the site name if one is to be displayed.
+ *
+ * @param $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ *
+ * @return null|string
+ *   The site name if one is to be displayed, otherwise NULL.
+ */
+function wrlc_primary_get_site_slogan($multi_site) {
+  if (!theme_get_setting('toggle_slogan', 'wrlc_primary')) {
+    return NULL;
+  }
+  return variable_get('site_slogan', wrlc_primary_get_default_site_slogan($multi_site));
+}
+
+/**
+ * Adds any required css for displaying the given multi-site.
+ *
+ * @param $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ */
+function wrlc_primary_multi_site_add_css($multi_site) {
+  $multi_site_css_files = array(
+    WRLC_PRIMARY_SITE_AU => 'auislandora.css',
+    WRLC_PRIMARY_SITE_CU => 'cuislandora.css',
+    WRLC_PRIMARY_SITE_DC => 'dcislandora.css',
+    WRLC_PRIMARY_SITE_MU => 'muheader.css',
+    WRLC_PRIMARY_SITE_GA => 'gaislandora.css',
+  );
+  // muislandora is the default site, and so the bulk of the css for all sites is defined within it, that's why we
+  // include it for all sites, and it's the css that is custom to it is defined in a differently named file.
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
-
-  $vars['site_name'] = variable_get('site_name', "");
-  $vars['site_slogan'] = variable_get('site_slogan', "");
-  // Switch on site host to provide applicable CSS.
-  switch ($site) {
-    case 'auislandora.wrlc.org':
-      $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/Digital-Research-Portal-header.png");
-      drupal_add_css(path_to_theme() . '/css/auislandora.css', 'theme', 'all');
-      break;
-
-    case 'dcislandora.wrlc.org':
-      $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/dcislandora_logo.png");
-      drupal_add_css(path_to_theme() . '/css/dcislandora.css', 'theme', 'all');
-      break;
-
-    case 'cuislandora.wrlc.org':
-      $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/cuislandora-logo.png");
-      $vars['site_name'] = variable_get('site_name', "Digital Collections");
-      $vars['site_slogan'] = variable_get('site_slogan', "University Libraries");
-      drupal_add_css(path_to_theme() . '/css/cuislandora.css', 'theme', 'all');
-      break;
-
-    case 'gaislandora.wrlc.org':
-      $vars['logo'] = url(path_to_theme() . "/images/multisite_logos/gaislandora_logo.png");
-      $vars['site_name'] = variable_get('site_name', "The University Library Archives");
-      drupal_add_css(path_to_theme() . '/css/gaislandora.css', 'theme', 'all');
-      break;
-
-    default:
-      drupal_add_css(path_to_theme() . '/css/muheader.css', 'theme', 'all');
-      break;
-
-  }
+  // Load the customizations for the given multi-site.
+  drupal_add_css(path_to_theme() . '/css/' . $multi_site_css_files[$multi_site], 'theme', 'all');
 }
 
 /**
