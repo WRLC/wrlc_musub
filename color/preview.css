@@ -22,6 +22,9 @@ html.js #preview {
   word-wrap: break-word;
   margin-bottom: 10px;
 }
+#preview a:hover {
+    text-decoration: none;
+}
 #preview-header {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
