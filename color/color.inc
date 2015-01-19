@@ -11,91 +11,71 @@ $info = array(
   // Available colors and color labels used in theme.
   'fields' => array(
     'html' => t('HTML Background'),
-    'top' => t('Header top'),
-    'bottom' => t('Header bottom'),
     'bg' => t('Main background'),
-    'sidebar' => t('Sidebar background'),
-    'sidebarborders' => t('Sidebar borders'),
-    'footer' => t('Footer background'),
-    'titleslogan' => t('Title and slogan'),
     'text' => t('Text color'),
     'link' => t('Link color'),
+    'linkalt' => t('Link alt color (hover, active, etc)'),
   ),
   // Pre-defined color schemes.
   'schemes' => array(
     'default' => array(
-      'title' => t('Blue Lagoon (default)'),
+      'title' => t('Default'),
       'colors' => array(
-        'html' => '#0779bf',
-        'top' => '#0779bf',
-        'bottom' => '#48a9e4',
+        'html' => '#eeeeee',
         'bg' => '#ffffff',
-        'sidebar' => '#f6f6f2',
-        'sidebarborders' => '#f9f9f9',
-        'footer' => '#292929',
-        'titleslogan' => '#fffeff',
-        'text' => '#3b3b3b',
-        'link' => '#0071B3',
+        'linkalt' => '#009fda',
+        'text' => '#1a1a1a',
+        'link' => '#717072',
       ),
     ),
-    'firehouse' => array(
-      'title' => t('Firehouse'),
+    'auislandora' => array(
+      'title' => t('American University'),
       'colors' => array(
-      		'html' => '#0779bf',
-        'top' => '#cd2d2d',
-        'bottom' => '#cf3535',
+        'html' => '#ffffff',
         'bg' => '#ffffff',
-        'sidebar' => '#f1f4f0',
-        'sidebarborders' => '#ededed',
-        'footer' => '#1f1d1c',
-        'titleslogan' => '#fffeff',
-        'text' => '#3b3b3b',
-        'link' => '#d6121f',
+        'linkalt' => '#009fda',
+        'text' => '#1a1a1a',
+        'link' => '#717072',
       ),
     ),
-    'ice' => array(
-      'title' => t('Ice'),
+    'cuislandora' => array(
+      'title' => t('Catholic University'),
       'colors' => array(
-      		'html' => '#0779bf',
-        'top' => '#d0d0d0',
-        'bottom' => '#c2c4c5',
+        'html' => '#ffffff',
         'bg' => '#ffffff',
-        'sidebar' => '#ffffff',
-        'sidebarborders' => '#cccccc',
-        'footer' => '#24272c',
-        'titleslogan' => '#000000',
-        'text' => '#4a4a4a',
-        'link' => '#019dbf',
+        'linkalt' => '#009fda',
+        'text' => '#1a1a1a',
+        'link' => '#717072',
       ),
     ),
-    'plum' => array(
-      'title' => t('Plum'),
+    'dcislandora' => array(
+      'title' => t('District of Columbia University'),
       'colors' => array(
-      		'html' => '#0779bf',
-        'top' => '#4c1c58',
-        'bottom' => '#593662',
-        'bg' => '#fffdf7',
-        'sidebar' => '#edede7',
-        'sidebarborders' => '#e7e7e7',
-        'footer' => '#2c2c28',
-        'titleslogan' => '#ffffff',
-        'text' => '#301313',
-        'link' => '#9d408d',
+        'html' => '#ffffff',
+        'bg' => '#ffffff',
+        'linkalt' => '#009fda',
+        'text' => '#1a1a1a',
+        'link' => '#717072',
       ),
     ),
-    'slate' => array(
-      'title' => t('Slate'),
+    'muislandora' => array(
+      'title' => t('Marymount University'),
       'colors' => array(
-      		'html' => '#0779bf',
-        'top' => '#4a4a4a',
-        'bottom' => '#4e4e4e',
+        'html' => '#ffffff',
         'bg' => '#ffffff',
-        'sidebar' => '#ffffff',
-        'sidebarborders' => '#d0d0d0',
-        'footer' => '#161617',
-        'titleslogan' => '#ffffff',
-        'text' => '#3b3b3b',
-        'link' => '#0073b6',
+        'linkalt' => '#009fda',
+        'text' => '#1a1a1a',
+        'link' => '#717072',
+      ),
+    ),
+    'gaislandora' => array(
+      'title' => t('Gallaudet University'),
+      'colors' => array(
+        'html' => '#ffffff',
+        'bg' => '#ffffff',
+        'linkalt' => '#009fda',
+        'text' => '#1a1a1a',
+        'link' => '#717072',
       ),
     ),
   ),
@@ -111,16 +91,7 @@ $info = array(
   ),
 
   // Gradient definitions.
-  'gradients' => array(
-    array(
-      // (x, y, width, height).
-      'dimension' => array(0, 0, 0, 0),
-      // Direction of gradient ('vertical' or 'horizontal').
-      'direction' => 'vertical',
-      // Keys of colors to use for the gradient.
-      'colors' => array('top', 'bottom'),
-    ),
-  ),
+  'gradients' => array(),
 
   // Color areas to fill (x, y, width, height).
   'fill' => array(),
