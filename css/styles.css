@@ -25,6 +25,11 @@
  *       @see http://snook.ca/archives/html_and_css/no_css_reset/
  */
 
+#block-wrlcdora-collapsible-search-block {
+    height: 100%;
+    padding-bottom: 1em;
+}
+
 .islandora-pdf-link{
   display: none;
 }
@@ -2595,7 +2600,6 @@ tr.selected td {
 /* line 91, ../sass/components/_pages.scss */
 .no-sidebars .search-php {
   top: 0;
-  right: 51px;
 }
 
 /* SMACSS theme rules */
