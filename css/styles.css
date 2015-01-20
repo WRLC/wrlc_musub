@@ -108,7 +108,7 @@ audio:not([controls]) {
   display: table;
   width: 100%;
   position: relative;
-  max-width: 10em;
+  max-width: 15em;
   height: 0;
   padding: 100% 0 0 0;
   overflow: hidden;
@@ -124,7 +124,7 @@ audio:not([controls]) {
   top: 0;
   bottom: 0;
   margin: auto;
-  max-height: 10em;
+  max-height: 12em;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -khtml-border-radius: 8px;  
