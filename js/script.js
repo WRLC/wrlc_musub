@@ -64,6 +64,7 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
           'width': $('#header').width(),
           'max-width': $('#main').width(),
         });
+        // Fix for IABookreader when exiting full screen.
         $('#book-viewer').css({
           'top': '0px',
         });
