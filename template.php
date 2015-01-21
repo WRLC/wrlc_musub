@@ -94,7 +94,7 @@ function wrlc_primary_get_default_logo_path($multi_site) {
     WRLC_PRIMARY_SITE_AU => '/images/multisite_logos/Digital-Research-Portal-header.png',
     WRLC_PRIMARY_SITE_CU => '/images/multisite_logos/cuislandora-logo.png',
     WRLC_PRIMARY_SITE_DC => '/images/multisite_logos/dcislandora_logo.png',
-    WRLC_PRIMARY_SITE_MU => '/logo.png',
+    WRLC_PRIMARY_SITE_MU => '/images/multisite_logos/muislandora_logo.png',
     WRLC_PRIMARY_SITE_GA => '/images/multisite_logos/gaislandora_logo.png',
   );
   $default_logo = $default_logos[$multi_site];
