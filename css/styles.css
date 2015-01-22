@@ -2316,7 +2316,8 @@ tr.selected td {
 /* line 184, ../sass/components/_islandora.scss */
 .ext-links {
   float: left;
-  width: 30%;
+  width: 33%;
+/*   border: solid 1px; */
 }
 /* line 187, ../sass/components/_islandora.scss */
 .ext-links h2 {
