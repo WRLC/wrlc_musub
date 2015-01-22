@@ -66,6 +66,12 @@
   width: auto !important;
 }
 
+/* Makes the middle block have padding while the outside blocks do not. */
+.ext-links.even {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+}
+
 .ext-links ul li {
 	list-style-image: none !important;
     list-style-type: none !important;
