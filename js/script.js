@@ -16,17 +16,17 @@ Drupal.behaviors.wrlc_primary_islandora_solr_simple_search_text = {
   attach: function(context, settings) {
     $('#islandora-solr-simple-search-form input.form-text', context).once('wrlc_primary_islandora_solr_simple_search_text', function() {
       // Set an initial default value for the search box
-      if ($(this).val() == '') $(this).val(Drupal.t('Search...'));
+      if ($(this).val() == '') $(this).val(Drupal.t('Search Content...'));
       // Add focusin handler to clear the search box.
       $(this).focusin(function() {
-        if ($(this).val() == Drupal.t('Search...')) {
+        if ($(this).val() == Drupal.t('Search Content...')) {
           $(this).val('');
         }
       });
       // Return search box default if it is empty.
       $(this).focusout(function() {
         if ($(this).val() == '') {
-          $(this).val(Drupal.t('Search...'));
+          $(this).val(Drupal.t('Search Content...'));
         }
       });
       }
