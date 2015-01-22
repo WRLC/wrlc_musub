@@ -6,6 +6,7 @@
 .header__logo-image {
   vertical-align: bottom;
   max-height: 7.25em;
+  max-width: 22em;
 }
 #site-name {
   padding-top: 8px;
