@@ -2316,8 +2316,10 @@ tr.selected td {
 /* line 184, ../sass/components/_islandora.scss */
 .ext-links {
   float: left;
-  width: 33%;
-/*   border: solid 1px; */
+  width: 33.33%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 /* line 187, ../sass/components/_islandora.scss */
 .ext-links h2 {
