@@ -109,7 +109,7 @@ audio:not([controls]) {
   border-right: none;
 }
 
-.front .views-field > span > a {
+.front .recent-additions .views-field > span > a {
   display: table;
   width: 100%;
   position: relative;
@@ -120,6 +120,13 @@ audio:not([controls]) {
 }
 
 .front .views-field > span > a > img{
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.front .recent-additions .views-field > span > a > img{
   position: absolute;
   display: block;
   width: 90%;
@@ -2093,7 +2100,7 @@ tr.selected td {
 
 /* line 47, ../sass/components/_islandora.scss */
 .featured-additions {
-  width: 72.25%;
+  width: 70%;
   float: left;
 }
 /* line 50, ../sass/components/_islandora.scss */
@@ -2114,24 +2121,26 @@ tr.selected td {
 }
 /* line 60, ../sass/components/_islandora.scss */
 .featured-additions .views-row {
-  padding-left: 10px;
-  padding-right: 10px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+  margin: auto;
+}
+/* line 60, ../sass/components/_islandora.scss */
+.featured-additions .views-row .field-content {
 }
 /* line 63, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column .views-field {
-  max-width: 230px;
+  /*max-width: 230px;*/
 }
 /* line 66, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column .views-field-php {
-  width: 230px;
+  /*width: 230px;
   height: 230px;
   overflow: hidden;
-  max-height: 13em;
+  max-height: 13em;*/
 }
 
 .recent-additions {
@@ -2140,34 +2149,49 @@ tr.selected td {
 
 /* line 70, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column .views-field-php img {
-  margin: 0 0 0 0px;
+  height: 300px;
+  width: 275px;
 }
 /* line 78, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column-1 {
   float: left;
-  width: 33.33333%;
-  margin-left: 0%;
-  margin-right: -33.33333%;
+  width: 33.33%;
 }
 /* line 81, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column-2 {
   float: left;
-  width: 33.33333%;
-  margin-left: 33.33333%;
-  margin-right: -66.66667%;
+  width: 33.33%;
+  padding-left: 1em;
+  padding-right: 1em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 /* line 84, ../sass/components/_islandora.scss */
 .featured-additions .views-row .views-column-3 {
   float: left;
-  width: 33.33333%;
-  margin-left: 66.66667%;
-  margin-right: -100%;
+  width: 33.33%;
 }
 
+#block-islandora-basic-collection-collection-object-count {
+  width: 30%;
+  float: left;
+  padding-left: 1em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
 /* line 90, ../sass/components/_islandora.scss */
 .browse-collections {
-  width: 22.5%;
+  width: 30%;
   float: left;
+  padding-left: 1em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 /* line 93, ../sass/components/_islandora.scss */
 .browse-collections h2 {
