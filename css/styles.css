@@ -2066,8 +2066,14 @@ tr.selected td {
   border-radius: 7px;
   color: #AEB0AF;
   font-size: 115%;
-  height: 2.83em;
+  height: 44px;
   padding-left: 0.5em;
+}
+/* Make the text fit on the iPhone */
+@media (max-width: 480px) {
+    #block-islandora-solr-simple input.form-text {
+        font-size: 95%;
+    }
 }
 /* line 19, ../sass/components/_islandora.scss */
 #block-islandora-solr-simple input.form-submit {
@@ -2172,6 +2178,21 @@ tr.selected td {
 .featured-additions .views-row .views-column-3 {
   float: left;
   width: 33.33%;
+}
+
+/* iPhone special case. */
+@media (max-width: 480px) {
+    .featured-additions .views-row .views-column {
+        padding: 0.25em;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .featured-additions .views-row .views-column .views-field-php img {
+        height: auto;
+        max-height: 200px;
+    }
 }
 
 #block-islandora-basic-collection-collection-object-count {
