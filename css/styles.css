@@ -2649,6 +2649,9 @@ tr.selected td {
 .no-sidebars .search-php {
   top: 0;
 }
+.wrlc-hidden {
+  display: none;
+}
 
 /* SMACSS theme rules */
 /* @import "theme-A"; */
