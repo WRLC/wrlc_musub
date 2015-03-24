@@ -7,7 +7,7 @@
  * @see https://drupal.org/node/1728148
  */
 ?>
-
+dsm($front_page);
 <div id="page">
   <div id="pre_header">
     <?php print render($page['pre_header']); ?>
@@ -16,13 +16,6 @@
   <div class="header-content-wrapper">
     <?php if ($logo): ?>
     <div id="header_logo_wrapper">
-      <?php if ($site_name == 'cuislandora') {
-           $link = "http://www.cua.edu";
-        } elseif ($site_name == 'dcislandora') {
-          $link = "http://lrdudc.wrlc.org/";
-        } else {
-          $link = $front_page;
-      } ?>
       <a href="<?php print $link; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
     </div>
     <?php endif; ?>
