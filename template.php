@@ -16,6 +16,8 @@ define('WRLC_PRIMARY_SITE_CU', 'cuislandora');
 define('WRLC_PRIMARY_SITE_DC', 'dcislandora');
 define('WRLC_PRIMARY_SITE_MU', 'muislandora');
 define('WRLC_PRIMARY_SITE_GA', 'gaislandora');
+define('CU_LINK', 'http://www.cua.edu');
+define('DC_LINK', 'http://lrdudc.wrlc.org/');
 
 /**
  * Override or insert variables into the page template for HTML output.
@@ -53,6 +55,7 @@ function wrlc_primary_preprocess_page(&$vars) {
   $vars['site_name'] = wrlc_primary_get_site_name($multi_site);
   $vars['site_slogan'] = wrlc_primary_get_site_slogan($multi_site);
   wrlc_primary_multi_site_add_css($multi_site);
+  wrlc_primary_get_link_path($multi_site);
 }
 
 /**
@@ -81,6 +84,28 @@ function wrlc_primary_get_multi_site() {
   // the default is assumed to always be Marymount
   // University, aka MU.
   return WRLC_PRIMARY_SITE_MU;
+}
+
+/**
+ * Gets the header link for the given multi_site.
+ *
+ * @param string $multi_site
+ *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
+ *
+ * @return string
+ *   The url path.
+ */
+function wrlc_primary_get_link_path($multi_site) {
+  if ($multi_site == WRLC_PRIMARY_SITE_CU) {
+    $vars['link'] = CU_LINK;
+  }
+  elseif ($multi_site == WRLC_PRIMARY_SITE_DC) {
+    $vars['link'] = DC_LINK;
+  }
+  else {
+    $vars['link'] = $vars['front_page'];
+  }
+  return $vars['link'];
 }
 
 /**
