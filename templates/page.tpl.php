@@ -7,7 +7,6 @@
  * @see https://drupal.org/node/1728148
  */
 ?>
-dsm($front_page);
 <div id="page">
   <div id="pre_header">
     <?php print render($page['pre_header']); ?>
