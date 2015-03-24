@@ -16,6 +16,7 @@ define('WRLC_PRIMARY_SITE_CU', 'cuislandora');
 define('WRLC_PRIMARY_SITE_DC', 'dcislandora');
 define('WRLC_PRIMARY_SITE_MU', 'muislandora');
 define('WRLC_PRIMARY_SITE_GA', 'gaislandora');
+// Constants for Link URLs
 define('CU_LINK', 'http://www.cua.edu');
 define('DC_LINK', 'http://lrdudc.wrlc.org/');
 
