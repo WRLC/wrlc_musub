@@ -7,8 +7,10 @@
  * @see https://drupal.org/node/1728096
  */
 
-// Constants that represent each of the multi-sites this theme supports. It's assumed that the $base_url will contain
-// one, and only one of these constants as a way to let the theme know which multi-site is being referred to.
+// Constants that represent each of the multi-sites this theme supports.
+// It's assumed that the $base_url will contain
+// one, and only one of these constants as a way to let the theme know which
+// multi-site is being referred to.
 define('WRLC_PRIMARY_SITE_AU', 'auislandora');
 define('WRLC_PRIMARY_SITE_CU', 'cuislandora');
 define('WRLC_PRIMARY_SITE_DC', 'dcislandora');
@@ -57,7 +59,8 @@ function wrlc_primary_preprocess_page(&$vars) {
  * Gets a string describing which multi-site the $base_url is referring to.
  *
  * @return string
- *   A string describing which multi-site the $base_url is referring to, if $base_url does not contain one of the
+ *   A string describing which multi-site the $base_url is referring to,
+ *   if $base_url does not contain one of the
  *   supported site names, then FALSE is returned.
  */
 function wrlc_primary_get_multi_site() {
@@ -74,13 +77,14 @@ function wrlc_primary_get_multi_site() {
       return $site;
     }
   }
-  // To prevent potential problems in supporting a theme without a name the default is assumed to always be Marymount
+  // To prevent potential problems in supporting a theme without a name
+  // the default is assumed to always be Marymount
   // University, aka MU.
   return WRLC_PRIMARY_SITE_MU;
 }
 
 /**
- * Gets the default logo path to use for the given multi_site
+ * Gets the default logo path to use for the given multi_site.
  *
  * @param string $multi_site
  *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
@@ -104,7 +108,7 @@ function wrlc_primary_get_default_logo_path($multi_site) {
 /**
  * Gets the path to the logo if one is to be displayed.
  *
- * @param $multi_site
+ * @param array $multi_site
  *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
  *
  * @return null|string
@@ -115,9 +119,11 @@ function wrlc_primary_get_logo_path($multi_site) {
   if (!theme_get_setting('logo')) {
     return NULL;
   }
-  // Either the theme settings are set to use the default logo or one that the user has provided.
+  // Either the theme settings are set to use the default logo or one
+  // that the user has provided.
   return theme_get_setting('default_logo', 'wrlc_primary') ?
-    // We have a different default logo depending on the multi-site given in the $base_url.
+    // We have a different default logo depending on the multi-site given in
+    // the $base_url.
     wrlc_primary_get_default_logo_path($multi_site) :
     file_create_url(theme_get_setting('logo_path'));
 }
@@ -125,7 +131,7 @@ function wrlc_primary_get_logo_path($multi_site) {
 /**
  * Gets the default site name for the given multi-site.
  *
- * @param $multi_site
+ * @param array $multi_site
  *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
  *
  * @return string
@@ -145,7 +151,7 @@ function wrlc_primary_get_default_site_name($multi_site) {
 /**
  * Gets the site name if one is to be displayed.
  *
- * @param $multi_site
+ * @param array $multi_site
  *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
  *
  * @return null|string
@@ -161,7 +167,7 @@ function wrlc_primary_get_site_name($multi_site) {
 /**
  * Gets the default site slogan for the given multi-site.
  *
- * @param $multi_site
+ * @param array $multi_site
  *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
  *
  * @return string
@@ -181,7 +187,7 @@ function wrlc_primary_get_default_site_slogan($multi_site) {
 /**
  * Gets the site name if one is to be displayed.
  *
- * @param $multi_site
+ * @param array $multi_site
  *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
  *
  * @return null|string
@@ -197,7 +203,7 @@ function wrlc_primary_get_site_slogan($multi_site) {
 /**
  * Adds any required css for displaying the given multi-site.
  *
- * @param $multi_site
+ * @param array $multi_site
  *   The WRLC_PRIMARY_SITE constant value representing the multi-site.
  */
 function wrlc_primary_multi_site_add_css($multi_site) {
@@ -208,8 +214,10 @@ function wrlc_primary_multi_site_add_css($multi_site) {
     WRLC_PRIMARY_SITE_MU => 'muheader.css',
     WRLC_PRIMARY_SITE_GA => 'gaislandora.css',
   );
-  // muislandora is the default site, and so the bulk of the css for all sites is defined within it, that's why we
-  // include it for all sites, and it's the css that is custom to it is defined in a differently named file.
+  // Muislandora is the default site, and so the bulk of the css for all sites
+  // is defined within it, that's why we
+  // include it for all sites, and it's the css that is custom to
+  // it is defined in a differently named file.
   drupal_add_css(path_to_theme() . '/css/muislandora.css', 'theme', 'all');
   // Load the customizations for the given multi-site.
   drupal_add_css(path_to_theme() . '/css/' . $multi_site_css_files[$multi_site], 'theme', 'all');

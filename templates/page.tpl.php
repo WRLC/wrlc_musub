@@ -16,7 +16,14 @@
   <div class="header-content-wrapper">
     <?php if ($logo): ?>
     <div id="header_logo_wrapper">
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
+      <?php if ($site_name == 'cuislandora') {
+           $link = "http://www.cua.edu";
+        } elseif ($site_name == 'dcislandora') {
+          $link = "http://lrdudc.wrlc.org/";
+        } else {
+          $link = $front_page;
+      } ?>
+      <a href="<?php print $link; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
     </div>
     <?php endif; ?>
 
@@ -24,7 +31,7 @@
       <div class="header__name-and-slogan" id="name-and-slogan">
         <?php if ($site_name): ?>
           <h1 class="header__site-name" id="site-name">
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><span><?php print $site_name; ?></span></a>
+            <a href="<?php print $link; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><span><?php print $site_name; ?></span></a>
           </h1>
         <?php endif; ?>
 
