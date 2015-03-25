@@ -16,14 +16,8 @@ define('WRLC_PRIMARY_SITE_CU', 'cuislandora');
 define('WRLC_PRIMARY_SITE_DC', 'dcislandora');
 define('WRLC_PRIMARY_SITE_MU', 'muislandora');
 define('WRLC_PRIMARY_SITE_GA', 'gaislandora');
-<<<<<<< HEAD
 define('WRLC_CU_LINK', 'http://www.cua.edu');
 define('WRLC_DC_LINK', 'http://lrdudc.wrlc.org/');
-=======
-// Constants for Link URLs
-define('CU_LINK', 'http://www.cua.edu');
-define('DC_LINK', 'http://lrdudc.wrlc.org/');
->>>>>>> 33b7c53658f317950c19ca56381deb0219ca00cc
 
 /**
  * Override or insert variables into the page template for HTML output.
