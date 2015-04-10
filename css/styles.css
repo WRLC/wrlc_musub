@@ -2414,13 +2414,11 @@ tr.selected td {
 .search-php #islandora-solr-simple-search-form .form-submit {
   display: none;
 }
-/* line 223, ../sass/components/_islandora.scss */
-.search-php input[type=checkbox] {
+/* Hide checkbox used to toggle the search visibility. */
+.search-php #toggle-1 {
   position: absolute;
   top: -9999px;
   left: -9999px;
-  /* For mobile, it's typically better to position checkbox on top of clickable
-  area and turn opacity to 0 instead. */
 }
 /* line 232, ../sass/components/_islandora.scss */
 .search-php div.hide {
