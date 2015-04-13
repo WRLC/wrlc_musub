@@ -37,6 +37,16 @@
     </dl>
   </div>
 </fieldset>
+    <?php if (!empty($islanda_usage_stats)): ?>
+      <div>
+        <h2><?php print t('Stats'); ?></h2>
+          <?php
+          foreach ($islanda_usage_stats as $stat) {
+            print $stat . '<br>';
+          }
+          ?>
+      </div>
+    <?php endif; ?>
   <?php endif; ?>
 <?php else: ?>
   <fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata collapsible collapsed"');?>>
@@ -47,3 +57,4 @@
     </div>
   </fieldset>
 <?php endif; ?>
+
