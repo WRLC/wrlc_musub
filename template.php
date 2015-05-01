@@ -405,9 +405,9 @@ function wrlc_primary_menu_local_tasks_alter(&$data, $router_item, $root_path) {
  * Implements hook_preprocess_islandora_solr_search_navigation_block().
  */
 function wrlc_primary_preprocess_islandora_solr_search_navigation_block(&$variables) {
-  $variables['prev_text'] = t('< previous');
+  $variables['prev_text'] = t('< previous | ');
   $variables['return_text'] = t('return to search');
-  $variables['next_text'] = t('next >');
+  $variables['next_text'] = t(' | next >');
 }
 
 /**
