@@ -17,7 +17,6 @@ define('WRLC_PRIMARY_SITE_DC', 'dcislandora');
 define('WRLC_PRIMARY_SITE_MU', 'muislandora');
 define('WRLC_PRIMARY_SITE_GA', 'gaislandora');
 // Constants for link URLs
-define('WRLC_CU_LINK', 'http://www.cua.edu');
 define('WRLC_DC_LINK', 'http://lrdudc.wrlc.org/');
 
 /**
@@ -97,10 +96,7 @@ function wrlc_primary_get_multi_site() {
  *   The url path.
  */
 function wrlc_primary_get_link_path($multi_site, &$vars) {
-  if ($multi_site == WRLC_PRIMARY_SITE_CU) {
-    $vars['link'] = WRLC_CU_LINK;
-  }
-  elseif ($multi_site == WRLC_PRIMARY_SITE_DC) {
+  if ($multi_site == WRLC_PRIMARY_SITE_DC) {
     $vars['link'] = WRLC_DC_LINK;
   }
   else {
