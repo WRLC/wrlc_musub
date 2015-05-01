@@ -2431,10 +2431,10 @@ tr.selected td {
 /* line 240, ../sass/components/_islandora.scss */
 .search-php label.toggle {
   display: inline-block;
-  background: url("../images/wrlc/display-search.png") no-repeat left top;
-  width: 20px;
-  height: 20px;
-  opacity: 0.25;
+  background: url("../images/wrlc/display-search.new.png") no-repeat left top;
+  width: 30px;
+  height: 30px;
+  opacity: 0.45;
   transition: opacity 0.2s ease-in-out 0s;
 }
 /* line 247, ../sass/components/_islandora.scss */
