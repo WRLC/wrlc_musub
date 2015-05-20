@@ -307,11 +307,84 @@ function wrlc_primary_form_alter(&$variables) {
 /**
  * Implements hook_preprocess().
  */
+function wrlc_primary_preprocess_islandora_objects_subset(&$variables) {
+  // Add the title to 'Grid view' and 'List view', for use as tool tips.
+  foreach ($variables['display_links'] as $key => $value) {
+    $class = (strripos($value['title'], 'grid') === FALSE) ? 'islandora-view-list' : 'islandora-view-grid';
+    $variables['display_links'][$key]['attributes']['class'][] = $class;
+    $variables['display_links'][$key]['attributes']['title'] = t("@title", array('@title' => $value['title']));
+  }
+  // Add support for the Solr Metadata Display Module.
+  module_load_include('inc', 'islandora_solr_metadata', 'includes/db');
+  module_load_include('inc', 'islandora_solr_metadata', 'theme/theme');
+  module_load_include('inc', 'islandora', 'includes/utilities');
+
+  $object = menu_get_object('islandora_object', 2);
+  $db_fields = array();
+  $variables['solr_fields'] = array();
+  $solr_fields =& $variables['solr_fields'];
+  $associations = islandora_solr_metadata_get_associations_by_cmodels($object->models);
+
+  foreach ($associations as $configuration_id) {
+    $field = islandora_solr_metadata_get_fields($configuration_id['configuration_id']);
+    $db_fields = array_merge($db_fields, $field);
+  }
+  foreach ($db_fields as $solr_field => $value) {
+    if (isset($solr_fields[$solr_field])) {
+      continue;
+    }
+    // Make an array for use later on.
+    $solr_fields[$solr_field] = array(
+      'display_label' => $value['display_label'],
+      'value' => array(),
+      'hyperlink' => $value['hyperlink'],
+      'weight' => $value['weight'],
+    );
+  }
+  $variables['metadata_found'] = islandora_solr_metadata_query_fields($object, $variables['solr_fields']);
+
+  $variables['descriptions'] = array();
+  $description_fields = array();
+  $descriptions = &$variables['descriptions'];
+  $associations = islandora_solr_metadata_get_associations_by_cmodels($object->models);
+  foreach ($associations as $configuration_id) {
+    $description = islandora_solr_metadata_retrieve_description($configuration_id['configuration_id']);
+    if ($description['description_field'] !== NULL) {
+      $description_fields[] = $description;
+    }
+  }
+  foreach ($description_fields as $description) {
+    $desc_field = $description['description_field'];
+    $descriptions[$desc_field] = array(
+      'display_label' => $description['description_label'],
+      'value' => array(),
+    );
+  }
+  $variables['description_found'] = islandora_solr_metadata_query_fields($object, $descriptions);
+
+  if (!empty($descriptions)) {
+    $description = reset($descriptions);
+    $description = check_markup(implode("\n", $description['value']), 'filtered_html');
+    if (strlen($description) < 256 && count($descriptions) == 1) {
+      $variables['short_description'] = $description;
+    }
+    else {
+      drupal_add_js(drupal_get_path('theme', 'wrlc_primary') . '/js/more.js');
+      $variables['more_link'] = '<a href="#" class="wrlc-show-more">' . t('[more]') . '</a>';
+      $variables['short_description'] = truncate_utf8($description, 256, TRUE, TRUE);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
 function wrlc_primary_preprocess_islandora_basic_collection_wrapper(&$variables) {
   // Add the title to 'Grid view' and 'List view', for use as tool tips.
   foreach ($variables['view_links'] as $key => $value) {
     $variables['view_links'][$key]['attributes']['title'] = array('title' => t("@title", array('@title' => $value['title'])));
   }
+
   // Add support for the Solr Metadata Display Module.
   module_load_include('inc', 'islandora_solr_metadata', 'includes/db');
   module_load_include('inc', 'islandora_solr_metadata', 'theme/theme');
