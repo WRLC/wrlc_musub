@@ -57,10 +57,6 @@ function wrlc_primary_preprocess_page(&$vars) {
   wrlc_primary_multi_site_add_css($multi_site);
   wrlc_primary_get_link_path($multi_site, $vars);
 }
-  // Removes logo from maintenance page
-function wrlc_primary_preprocess_maintenance_page(&$vars){
-  $vars['logo'] = ";
-}
 
 /**
  * Gets a string describing which multi-site the $base_url is referring to.
