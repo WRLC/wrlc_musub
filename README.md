@@ -1,4 +1,4 @@
-BUILD A THEME WITH ZEN
+Islandora Sub-Theme for Marymount University
 ----------------------
 
 The base Zen theme is designed to be easily extended by its sub-themes. You
